@@ -1,4 +1,8 @@
-import monigota from '../images/monigota.png';
+import logo from '../images/logo-adalab.png';
+import iconLogo from '../images/icono-logo.png';
+import palette1 from '../images/palette-color-1.png';
+import palette2 from '../images/palette-color-2.png';
+import palette3 from '../images/palette-color-3.png';
 import '../styles/App.scss';
 
 function App() {
@@ -10,11 +14,7 @@ function App() {
           title="Debuggers Cards"
           alt="Debuggers Cards"
         >
-          <img
-            className="header-create__img"
-            src="./assets/images/icono-logo.png"
-            alt="logo awesome"
-          />
+          <img className="header-create__img" src={logo} alt="logo awesome" />
         </a>
       </header>
       <section className="card-section js-card-section">
@@ -95,7 +95,7 @@ function App() {
                 title="Debuggers Cards"
                 alt="Debuggers Cards"
               >
-                <img src="./assets/images/favicon.png" className="icon-logo" />
+                <img src={iconLogo} className="icon-logo" />
               </a>
             </li>
           </ul>
@@ -128,7 +128,7 @@ function App() {
                 />
                 <img
                   className="election__img"
-                  src="./assets/images/palette-color-1.png"
+                  src={palette1}
                   alt="Palette-color1"
                 />
               </label>
@@ -143,7 +143,7 @@ function App() {
                 />
                 <img
                   className="election__img"
-                  src="./assets/images/palette-color-2.png"
+                  src={palette2}
                   alt="Palette-color2"
                 />
               </label>
@@ -158,7 +158,7 @@ function App() {
                 />
                 <img
                   className="election__img"
-                  src="./assets/images/palette-color-3.png"
+                  src={palette3}
                   alt="Palette-color3"
                 />
               </label>
