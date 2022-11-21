@@ -1,0 +1,240 @@
+.form {
+  background-image: linear-gradient(
+    to bottom,
+    var($white-four),
+    var($white-two) 9%
+  );
+  padding: 27px 20px 31px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  @media all and (min-width: 768px) {
+    padding: 0;
+    width: 50%;
+  }
+}
+
+//clases para la función de arrow
+
+.turn-around {
+  transform: rotate(180deg);
+}
+
+.collapsed {
+  display: none;
+}
+
+//------------------------DISEÑA------------------------------------//
+
+.design {
+  border-bottom: solid $white-two 1.5px; //esto hay que darselo a cada fieldset
+}
+
+.option {
+  width: 280px;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  cursor: pointer;
+  @media all and (min-width: 768px) {
+    padding-left: 0;
+    margin-right: 0px;
+    width: 100%;
+  }
+
+  &__span {
+    display: flex;
+    flex-direction: row;
+    color: $dull-orange;
+    font-size: 18px;
+  }
+
+  &__title {
+    text-transform: uppercase;
+    font-weight: 600;
+    color: $gunmetal;
+    margin-left: 10px;
+  }
+}
+
+.election {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 10px;
+
+  &__title {
+    color: $gunmetal;
+    font-size: 14px;
+    text-transform: uppercase;
+    margin-left: 25px;
+  }
+
+  &__span {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__option {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-bottom: 20px;
+  }
+
+  &__input {
+    width: 17px;
+    height: 17px;
+    margin-right: 10px;
+  }
+
+  &__img {
+    width: 100px;
+  }
+}
+
+//------------------------RELLENA------------------------------------//
+.fieldset_stuffed {
+  border-bottom: solid $white-two 1.5px;
+}
+
+.stuffed {
+  display: flex;
+  flex-direction: column;
+
+  &__label {
+    color: $dark-gree-blue;
+    font-size: 14px;
+    margin-bottom: 7px;
+    line-height: 20px;
+  }
+
+  &__input {
+    border: solid 1px $hospital-green;
+    margin-bottom: 20px;
+    height: 30px;
+    padding-left: 10px;
+
+    &::placeholder {
+      opacity: 0.5;
+    }
+  }
+
+  &__image {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+.add-image {
+  width: 140px;
+  height: 30px;
+  background-color: $dull-orange;
+  color: $white;
+  border: none;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.32);
+  border-radius: 3px;
+  cursor: pointer;
+  text-align: center;
+  line-height: 30px;
+  font-size: 14px;
+}
+
+.preview-image {
+  width: 30px;
+  height: 30px;
+  margin-left: 20px;
+  background-size: cover;
+}
+
+//imagen usuario añadir
+.hidden {
+  display: none;
+}
+
+//------------------------COMPARTE------------------------------------//
+
+.fieldset_share {
+  border-bottom: solid $white-two 1.5px;
+}
+.share {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &__button {
+    margin: 30px 0px 30px 0px;
+    background-color: $dull-orange;
+    width: 199px;
+    height: 50px;
+    color: white;
+    font-size: 18px;
+    font-family: $font-sans;
+    text-transform: uppercase;
+    font-weight: 600;
+    border-radius: 12px;
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.32);
+    border: none;
+    cursor: pointer;
+  }
+}
+
+.share-icon {
+  color: $dull-orange;
+  background-color: white;
+  font-size: 22px;
+  width: 28px;
+  height: 22px;
+  border-radius: 3px;
+  margin-right: 9px;
+}
+
+.created {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  &__title {
+    margin-top: 20px;
+    color: $gunmetal;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: $font-sans;
+  }
+  &__link {
+    text-decoration: none;
+    color: $dull-orange;
+    font-size: 12px;
+    font-weight: 600;
+    font-family: $font-sans;
+    margin-top: 5px;
+  }
+  .twitter {
+    margin: 10px auto 30px auto;
+    background-color: #00a0f5;
+    color: white;
+    font-family: $font-sans;
+    font-size: 14px;
+    width: 181px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    text-decoration: none;
+    border-radius: 3px;
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.32);
+  }
+  .twitter-icon {
+    color: white;
+    font-size: 18px;
+    margin-right: 9.5px;
+  }
+}
+
+//------Clases para la función showCreated
+
+.change-color-btn {
+  background-color: $grey-checked;
+}
+.change-color-icon {
+  color: $grey-checked;
+}

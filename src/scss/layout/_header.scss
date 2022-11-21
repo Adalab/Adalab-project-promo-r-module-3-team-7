@@ -1,0 +1,25 @@
+.header {
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom: 0px;
+  padding-left: 50px;
+  padding-right: 0px;
+  background-color: white;
+  &__img {
+    object-fit: cover;
+    width: 250px;
+  }
+}
+@media all and (min-width: 768px) {
+  .header {
+    padding-top: 100px;
+    padding-bottom: 0px;
+    padding-left: 100px;
+    padding-right: 0px;
+    &__img {
+      width: 350px;
+      height: 270px;
+      margin: 0px 120px auto auto;
+    }
+  }
+}

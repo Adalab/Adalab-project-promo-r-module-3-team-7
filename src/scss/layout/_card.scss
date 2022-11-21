@@ -1,0 +1,228 @@
+.card-section {
+  background-image: url(https://img.freepik.com/vector-premium/chica-adolescente-computadora-portatil-pasa-tiempo-redes-sociales-simbolos-letras-me-gusta-sonrisas-concepto-vector-estilo-dibujos-animados-plana_351831-46.jpg?w=826);
+  padding: 38px 35px 40px 45px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  @media all and (min-width: 768px) {
+    justify-content: flex-start;
+    padding-top: 230px;
+    width: 50%;
+    border-radius: 6px;
+  }
+}
+.reset {
+  border: solid 1px black;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  padding: 1px 10px;
+  background-color: transparent;
+  position: relative;
+  right: 80px;
+
+  &__button {
+    font-family: $font-sans;
+    background-color: transparent;
+    border-color: transparent;
+    text-transform: uppercase;
+    font-size: 12px;
+    line-height: 20px;
+    color: $gunmetal;
+    cursor: pointer;
+
+    &:hover {
+      color: $white;
+    }
+
+    .fa-trash-can {
+      padding-right: 8px;
+    }
+  }
+}
+
+.card {
+  background-color: $white;
+  display: flex;
+  flex-direction: column;
+  font-family: $font-montse;
+  line-height: 20px;
+  padding: 21px 0 12px;
+  border-radius: 2px $hospital-green;
+  box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.2), 0 1px 3px 0 rgba(0, 0, 0, 0.35);
+
+  &__text {
+    padding-left: 20px;
+    border-left: solid 5px;
+
+    &_title {
+      font-weight: 700;
+      font-size: 18px;
+      text-transform: capitalize;
+      width: 19ch;
+      // color: $dark-gree-blue;
+    }
+
+    &_subtitle {
+      font-size: 16px;
+      width: 23ch;
+    }
+  }
+
+  &__image {
+    background-image: url(https://img.freepik.com/vector-premium/chica-adolescente-computadora-portatil-pasa-tiempo-redes-sociales-simbolos-letras-me-gusta-sonrisas-concepto-vector-estilo-dibujos-animados-plana_351831-46.jpg?w=826);
+    width: 240px;
+    height: 200px;
+    margin: 10px 0;
+    background-size: cover;
+  }
+
+  &__social {
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 10px;
+
+    .fa-solid,
+    .fa-brands,
+    .fa-regular {
+      // color: $dark-gree-blue;
+      font-size: 18px;
+      margin-right: 10px;
+      padding: 7px;
+      border-radius: 16px;
+      border: solid 2px;
+
+      // &:hover {
+      //   color: $hospital-green;
+      // }
+    }
+    .fa-mobile-screen {
+      padding: 7px 10px;
+    }
+    .fa-brands {
+      padding: 7px 8px;
+    }
+  }
+}
+
+.icon-logo {
+  height: 35px;
+  transition: 2s;
+  &:hover {
+    transform: scale(1.25);
+  }
+}
+
+//SECCIÓN JAVASCRIPT COLORES:
+
+.palette1 {
+  .card-section {
+    background-image: url(https://img.freepik.com/vector-premium/chica-adolescente-computadora-portatil-pasa-tiempo-redes-sociales-simbolos-letras-me-gusta-sonrisas-concepto-vector-estilo-dibujos-animados-plana_351831-46.jpg?w=826);
+    padding: 38px 35px 40px 45px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    @media all and (min-width: 768px) {
+      justify-content: flex-start;
+      padding-top: 230px;
+      width: 50%;
+      border-radius: 6px;
+    }
+  }
+  background-color: rgb(115, 202, 180);
+  .card__image {
+    background-image: url('https://img.freepik.com/vector-premium/lindo-gatito-trabajando-frente-computadora-portatil-ilustracion-dibujos-animados_2095-499.jpg?w=826');
+    width: 240px;
+    height: 200px;
+    margin: 10px 0;
+    background-size: cover;
+  }
+  .js-card-border {
+    border-left: solid 5px $dirty-blue;
+  }
+  .js-card-name {
+    color: $dark-gree-blue;
+  }
+  .js-card-icon {
+    color: $dark-gree-blue;
+    border: solid 2px $hospital-green;
+    &:hover {
+      color: $hospital-green;
+    }
+  }
+}
+.palette2 {
+  .card-section {
+    background-image: url(https://img.freepik.com/vector-premium/chica-mujer-joven-computadora-portatil-ilustracion-conceptual-trabajo-independiente-estudio-educacion-trabajo-casa-ilustracion-vectorial-estilo-dibujos-animados-planos-fondo-aislado-x9_509398-296.jpg?w=826);
+    padding: 38px 35px 40px 45px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    @media all and (min-width: 768px) {
+      justify-content: flex-start;
+      padding-top: 230px;
+      width: 50%;
+      border-radius: 6px;
+    }
+  }
+  background-color: rgb(238, 160, 160);
+  .card__image {
+    background-image: url('https://img.freepik.com/vector-premium/muchacha-que-trabaja-ilustracion-icono-computadora-portatil-trabajar-casa-mascota-personaje-dibujos-animados_138676-1024.jpg?w=826');
+    width: 240px;
+    height: 200px;
+    margin: 10px 0;
+    background-size: cover;
+  }
+  .js-card-border {
+    border-left: solid 5px $rusty-red;
+  }
+  .js-card-name {
+    color: $dried-blood;
+  }
+  .js-card-icon {
+    color: $dried-blood;
+    border: solid 2px $tomato;
+    &:hover {
+      color: $tomato;
+    }
+  }
+}
+.palette3 {
+  .card-section {
+    background-image: url(https://img.freepik.com/vector-gratis/gato-lindo-ilustracion-icono-vector-historieta-ordenador-portatil-concepto-icono-tecnologia-animal-aislado-vector-premium-estilo-dibujos-animados-plana_138676-3698.jpg?w=826&t=st=1668697796~exp=1668698396~hmac=6d1a49bc670b3cf28e50741304dec103ca5490d1ccaa01f634b49890373377c3://st.depositphotos.com/1758000/1970/v/450/depositphotos_19704911-stock-illustration-pretty-business-woman-at-office.jpg);
+    padding: 38px 35px 40px 45px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    @media all and (min-width: 768px) {
+      justify-content: flex-start;
+      padding-top: 230px;
+      width: 50%;
+      border-radius: 6px;
+    }
+  }
+  background-color: rgb(243, 243, 159);
+  .card__image {
+    background-image: url('https://img.freepik.com/vector-premium/trabajadores-lindos-sentados-escritorios-ilustracion-arte-dibujos-animados-gato_56104-661.jpg?w=996');
+    width: 240px;
+    height: 200px;
+    margin: 10px 0;
+    background-size: cover;
+  }
+  .js-card-border {
+    border-left: solid 5px $faded-orange;
+  }
+  .js-card-name {
+    color: $slate;
+  }
+  .js-card-icon {
+    color: $slate;
+    border: solid 2px $light-grey-blue;
+    &:hover {
+      color: $light-grey-blue;
+    }
+  }
+}

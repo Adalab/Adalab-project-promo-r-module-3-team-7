@@ -1,0 +1,57 @@
+.header-create {
+  padding: 0px 79px 0px 40px;
+  background-color: $white;
+  &__img {
+    object-fit: cover;
+    width: 120px;
+    margin-left: 0px;
+
+    object-fit: contain;
+
+    //animación logo
+    &:hover,
+    &:focus,
+    &:active {
+      -webkit-animation-name: buzz;
+      animation-name: buzz;
+      -webkit-animation-duration: 0.15s;
+      animation-duration: 0.15s;
+      -webkit-animation-timing-function: linear;
+      animation-timing-function: linear;
+      -webkit-animation-iteration-count: infinite;
+      animation-iteration-count: infinite;
+    }
+  }
+}
+
+//https://www.joomla-monster.com/blog/web-development/css3-powered-hover-effects-for-your-logo
+@-webkit-keyframes buzz {
+  50% {
+    -ms-transform: translateX(3px) rotate(2deg);
+    -webkit-transform: translateX(3px) rotate(2deg);
+    transform: translateX(3px) rotate(2deg);
+  }
+  100% {
+    -ms-transform: translateX(-3px) rotate(-2deg);
+    -webkit-transform: translateX(-3px) rotate(-2deg);
+    transform: translateX(-3px) rotate(-2deg);
+  }
+}
+@keyframes buzz {
+  50% {
+    -ms-transform: translateX(3px) rotate(2deg);
+    -webkit-transform: translateX(3px) rotate(2deg);
+    transform: translateX(3px) rotate(2deg);
+  }
+  100% {
+    -ms-transform: translateX(-3px) rotate(-2deg);
+    -webkit-transform: translateX(-3px) rotate(-2deg);
+    transform: translateX(-3px) rotate(-2deg);
+  }
+}
+
+@media all and (min-width: 768px) {
+  .header-create {
+    padding: 0px 527px 0px 40px;
+  }
+}

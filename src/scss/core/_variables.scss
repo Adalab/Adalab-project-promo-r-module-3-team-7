@@ -1,0 +1,33 @@
+// fonts
+$font-merri: 'Merriweather', serif;
+$font-sans: 'Open Sans', sans-serif;
+$font-montse: 'Montserrat', sans-serif;
+
+// colors
+$black: #000000;
+$dark-gree-blue: #114e4e;
+$dirty-blue: #438792;
+$hospital-green: #a2deaf;
+$light-kaki: #f9f4dc;
+$white: #ffffff;
+$dull-orange: #e17334;
+$gris-pardusco: #6b6b6b;
+$white-four: #f5f5f5;
+$white-two: #d8d8d8;
+$gunmetal: #54585a;
+$silver: #bfcdd0;
+$pale-grey: #dde9ed;
+$dried-blood: #420101;
+$rusty-red: #bd1010;
+$tomato: #e95626;
+$slate: #3e5b65;
+$faded-orange: #eab052;
+$light-grey-blue: #a0c0cf;
+$grey-checked: #d5d5d5;
+$dark-purple: #471578;
+$dark-pink: #8d06da;
+
+:root {
+  font-family: $font-sans;
+  color: $gunmetal;
+}
