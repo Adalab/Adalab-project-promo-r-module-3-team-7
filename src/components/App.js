@@ -1,7 +1,7 @@
+import '../styles/App.scss';
 import { useState } from 'react';
 import logo from '../images/logo-adalab.png';
 import iconLogo from '../images/icono-logo.png';
-import logoAdalab from '../images/logo-adalab.png';
 import palette1 from '../images/palette-color-1.png';
 import palette2 from '../images/palette-color-2.png';
 import palette3 from '../images/palette-color-3.png';
@@ -21,7 +21,6 @@ import {
 
 } from 'react-icons/fa';
 
-import '../styles/App.scss';
 
 function App() {
 
@@ -45,7 +44,19 @@ function App() {
     setPerson({ ...person, [inputName]: inputValue });
     console.log(inputName);
     console.log(inputValue);
+
+    // const classApp = (name === 'MariCarmen') ? 'palette1' : '';
   };
+
+  let selectedPalette = 'palette1';
+  if (person.palette === '2') {
+    selectedPalette = 'palette2';
+  } else if (person.palette === '3') {
+    selectedPalette = 'palette3';
+  } else {
+    selectedPalette = 'palette1';
+    }
+
   const handleReset = () =>{
     setPerson({ 
     palette: '1',
@@ -82,7 +93,7 @@ function App() {
               Reset
             </button>
           </div>
-          <article className="card palette1 ">
+          <article className={`card ${selectedPalette}`}>
             <div className="card__text ">
               <h3 className="card__text_title">{(person.full_name === '') ? 'Nombre Apellidos' : person.full_name}</h3>
               <p className="card__text_subtitle">{(person.job === '') ? 'Front-end developer' : person.job}</p>
@@ -149,7 +160,8 @@ function App() {
                     id="option"
                     value="1"
                     name="palette"
-                    checked
+                    checked = {person.palette === '1'}
+                    onChange={handleInput}
                   />
                   <img
                     className="election__img"
@@ -165,6 +177,8 @@ function App() {
                     id="option"
                     value="2"
                     name="palette"
+                    checked = {person.palette === '2'}
+                    onChange={handleInput}
                   />
                   <img
                     className="election__img"
@@ -180,6 +194,8 @@ function App() {
                     id="option"
                     value="3"
                     name="palette"
+                    checked = {person.palette === '3'}
+                    onChange={handleInput}
                   />
                   <img
                     className="election__img"
