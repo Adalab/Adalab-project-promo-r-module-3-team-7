@@ -16,8 +16,13 @@ import {
 import '../styles/App.scss';
 
 function App() {
+
+  const handleForm = (e) => {
+    e.preventDefault();
+  }
+
   const [person, setPerson] = useState({
-    palette: '',
+    palette: '1',
     full_name: '',
     job: '',
     email: '',
@@ -32,6 +37,17 @@ function App() {
     setPerson({ ...person, [inputName]: inputValue });
     console.log(inputName);
     console.log(inputValue);
+  };
+  const handleReset = () =>{
+    setPerson({ 
+    palette: '1',
+    full_name: '',
+    job: '',
+    email: '',
+    phone: '',
+    github: '',
+    linkedin: '',
+    images: '', });
   };
   return (
     <>
@@ -51,6 +67,7 @@ function App() {
               type="reset"
               className="reset__button "
               title="Reset button"
+              onClick={handleReset}
             >
               <FaTrashAlt></FaTrashAlt>
               Reset
@@ -58,8 +75,8 @@ function App() {
           </div>
           <article className="card ">
             <div className="card__text ">
-              <h3 className="card__text_title">Nombre apellido</h3>
-              <p className="card__text_subtitle">Front-end developer</p>
+              <h3 className="card__text_title">{(person.full_name === '') ? 'Nombre Apellidos' : person.full_name}</h3>
+              <p className="card__text_subtitle">{(person.job === '') ? 'Front-end developer' : person.job}</p>
             </div>
             <div
               className="card__image "
@@ -68,22 +85,22 @@ function App() {
             ></div>
             <ul className="card__social">
               <li>
-                <a href="#" target="_blank" title="Telephone" alt="Telephone">
+                <a href={`tel:${person.phone}`} target="_blank" title="Telephone" alt="Telephone">
                   <FaMobileAlt className="icon"></FaMobileAlt>
-                </a>
+                </a> 
               </li>
               <li>
-                <a href="" target="_blank" title="E-mail" alt="E-mail">
+                <a href={`mailto:${person.email}`} target="_blank" title="E-mail" alt="E-mail">
                   <FaEnvelopeOpenText></FaEnvelopeOpenText>
                 </a>
               </li>
               <li>
-                <a href="" target="_blank" title="LinkedIn" alt="LinkedIn">
+                <a href={`https://www.linkedin.com/in/${person.linkedin}`} target="_blank" title="LinkedIn" alt="LinkedIn">
                   <FaLinkedin></FaLinkedin>
                 </a>
               </li>
               <li>
-                <a href="" target="_blank" title="Github" alt="Github">
+                <a href={`https://github.com/${person.github}`} target="_blank" title="Github" alt="Github">
                   <FaGithubAlt></FaGithubAlt>
                 </a>
               </li>
@@ -100,7 +117,7 @@ function App() {
             </ul>
           </article>
         </section>
-        <form method="get" action="" className="form">
+        <form method="get" action="" className="form" onSubmit={handleForm}>
           {/* {/*<!--aquí va el link en js -->/ */}
 
           <fieldset className="design">
@@ -122,7 +139,7 @@ function App() {
                     type="radio"
                     id="option"
                     value="1"
-                    name="colors-options"
+                    name="palette"
                     checked
                   />
                   <img
@@ -138,7 +155,7 @@ function App() {
                     type="radio"
                     id="option"
                     value="2"
-                    name="colors-options"
+                    name="palette"
                   />
                   <img
                     className="election__img"
@@ -153,7 +170,7 @@ function App() {
                     type="radio"
                     id="option"
                     value="3"
-                    name="colors-options"
+                    name="palette"
                   />
                   <img
                     className="election__img"
@@ -183,6 +200,7 @@ function App() {
                 Nombre completo
               </label>
               <input
+                value = {person.full_name}
                 className="stuffed__input"
                 placeholder="Ej: Sally Jill"
                 onInput={handleInput}
@@ -196,6 +214,7 @@ function App() {
                 Puesto
               </label>
               <input
+                value = {person.job}
                 className="stuffed__input"
                 placeholder="Ej: Front-end unicorn"
                 onInput={handleInput}
@@ -213,6 +232,7 @@ function App() {
                   Añadir imagen
                 </label>
                 <input
+                  value = {person.images}
                   onInput={handleInput}
                   type="file"
                   id="profileImage"
@@ -226,6 +246,7 @@ function App() {
                 Email{' '}
               </label>
               <input
+                value= {person.email}
                 className="stuffed__input"
                 placeholder="Ej: sally.hill@gmail.com"
                 onInput={handleInput}
@@ -239,6 +260,7 @@ function App() {
                 Teléfono
               </label>
               <input
+                value= {person.phone}
                 className="stuffed__input"
                 placeholder="Ej: 555-55-55-55"
                 type="tel"
@@ -251,6 +273,7 @@ function App() {
                 Linkedin
               </label>
               <input
+                value= {person.linkedin}
                 className="stuffed__input"
                 placeholder="Ej: linkedin.com/in/sally-hill"
                 onInput={handleInput}
@@ -263,6 +286,7 @@ function App() {
                 Github
               </label>
               <input
+                value= {person.github}
                 className="stuffed__input"
                 placeholder="Ej: sally-hill"
                 onInput={handleInput}
