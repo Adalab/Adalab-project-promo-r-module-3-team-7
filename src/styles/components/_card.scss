@@ -5,6 +5,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-repeat: no-repeat;
   @media all and (min-width: 768px) {
     justify-content: flex-start;
     padding-top: 230px;
@@ -30,13 +31,17 @@
     line-height: 20px;
     color: $gunmetal;
     cursor: pointer;
-
+    display: flex;
+    align-items: center;
+    
+    
     &:hover {
       color: $white;
     }
 
-    .fa-trash-can {
+    .icon-trash {
       padding-right: 8px;
+      font-size: 18px;
     }
   }
 }
@@ -82,32 +87,35 @@
     justify-content: flex-start;
     margin-left: 10px;
 
-    // .fa-solid,
-    // .fa-brands,
-    // .fa-regular {
-    //   // color: $dark-gree-blue;
-    //   font-size: 18px;
-    //   margin-right: 10px;
-    //   padding: 7px;
-    //   border-radius: 16px;
-    //   border: solid 2px;
+  .icon-movil,
+  .icon-linkedin,
+  .icon-github ,
+  .icon-email{
+    color: $dark-gree-blue;
+    font-size: 40px;
+    margin-right: 10px;
+     //padding: 7px;
+    border-radius: 16px;
+    border: solid 2px;
+    font-size: 35px;
 
-    //   // &:hover {
-    //   //   color: $hospital-green;
-    //   // }
-    // }
-    // .fa-mobile-screen {
-    //   padding: 7px 10px;
-    // }
-    // .fa-brands {
-    //   padding: 7px 8px;
-    // }
+     &:hover {
+      color: $hospital-green;
+     }
+     }
+     .icon-movil {
+       //padding: 7px 10px;
+     }
+     .fa-brands {
+       padding: 7px 8px;
+     }
   }
 }
 
 .icon-logo {
   height: 35px;
   transition: 2s;
+ 
   &:hover {
     transform: scale(1.25);
   }

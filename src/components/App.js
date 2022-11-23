@@ -1,7 +1,7 @@
+import '../styles/App.scss';
 import { useState } from 'react';
 import logo from '../images/logo-adalab.png';
 import iconLogo from '../images/icono-logo.png';
-import logoAdalab from '../images/logo-adalab.png';
 import palette1 from '../images/palette-color-1.png';
 import palette2 from '../images/palette-color-2.png';
 import palette3 from '../images/palette-color-3.png';
@@ -11,9 +11,16 @@ import {
   FaMobileAlt,
   FaLinkedin,
   FaEnvelopeOpenText,
+  FaKeyboard,
+  FaShareAlt,
+  FaChevronDown,
+  FaRegObjectUngroup,
+  FaTwitter,
+  FaIdCard,
+
+
 } from 'react-icons/fa';
 
-import '../styles/App.scss';
 
 function App() {
 
@@ -37,7 +44,19 @@ function App() {
     setPerson({ ...person, [inputName]: inputValue });
     console.log(inputName);
     console.log(inputValue);
+
+    // const classApp = (name === 'MariCarmen') ? 'palette1' : '';
   };
+
+  let selectedPalette = 'palette1';
+  if (person.palette === '2') {
+    selectedPalette = 'palette2';
+  } else if (person.palette === '3') {
+    selectedPalette = 'palette3';
+  } else {
+    selectedPalette = 'palette1';
+    }
+
   const handleReset = () =>{
     setPerson({ 
     palette: '1',
@@ -52,13 +71,14 @@ function App() {
   return (
     <>
       <header className="header-create">
-        <a
+        {/* TODO: future link to preview-page */}
+        {/* <a
           href="http://beta.adalab.es/project-promo-r-module-2-team-9/"
           title="Debuggers Cards"
           alt="Debuggers Cards"
-        >
-          <img className="header-create__img" src={logo} alt="logo awesome" />
-        </a>
+        > */}
+          <img className="header-create__img" src={iconLogo} alt="logo awesome" />
+        {/* </a> */}
       </header>
       <main className="main-create">
         <section className="card-section ">
@@ -69,12 +89,12 @@ function App() {
               title="Reset button"
               onClick={handleReset}
             >
-              <FaTrashAlt></FaTrashAlt>
+              <FaTrashAlt className="icon-trash"></FaTrashAlt>
               Reset
            
             </button>
           </div>
-          <article className="card ">
+          <article className={`card ${selectedPalette}`}>
             <div className="card__text ">
               <h3 className="card__text_title">{(person.full_name === '') ? 'Nombre Apellidos' : person.full_name}</h3>
               <p className="card__text_subtitle">{(person.job === '') ? 'Front-end developer' : person.job}</p>
@@ -87,33 +107,33 @@ function App() {
             <ul className="card__social">
               <li>
                 <a href={`tel:${person.phone}`} target="_blank" title="Telephone" alt="Telephone">
-                  <FaMobileAlt className="icon"></FaMobileAlt>
+                  <FaMobileAlt className="icon-movil fa-brands"></FaMobileAlt>
                 </a> 
               </li>
               <li>
                 <a href={`mailto:${person.email}`} target="_blank" title="E-mail" alt="E-mail">
-                  <FaEnvelopeOpenText></FaEnvelopeOpenText>
+                  <FaEnvelopeOpenText className="icon-email fa-brands" ></FaEnvelopeOpenText>
                 </a>
               </li>
               <li>
                 <a href={`https://www.linkedin.com/in/${person.linkedin}`} target="_blank" title="LinkedIn" alt="LinkedIn">
-                  <FaLinkedin></FaLinkedin>
+                  <FaLinkedin className="icon-linkedin fa-brands" ></FaLinkedin>
                 </a>
               </li>
               <li>
                 <a href={`https://github.com/${person.github}`} target="_blank" title="Github" alt="Github">
-                  <FaGithubAlt></FaGithubAlt>
+                  <FaGithubAlt className="icon-github fa-brands"></FaGithubAlt>
                 </a>
               </li>
               <li>
-                <a
+                {/* <a
                   href="http://beta.adalab.es/project-promo-r-module-2-team-9/"
                   target="_blank"
                   title="Debuggers Cards"
                   alt="Debuggers Cards"
-                >
+                > */}
                   <img src={iconLogo} className="icon-logo" />
-                </a>
+                {/* </a> */}
               </li>
             </ul>
           </article>
@@ -124,10 +144,10 @@ function App() {
           <fieldset className="design">
             <div className="option ">
               <span className="option__span">
-                <i className="fa-regular fa-object-ungroup"></i>
+                <FaRegObjectUngroup></FaRegObjectUngroup>
                 <h3 className="option__title">Diseña</h3>
               </span>
-              <i className="fa-solid fa-chevron-down  turn-around"></i>
+              <FaChevronDown></FaChevronDown>
             </div>
 
             <div className="election ">
@@ -141,7 +161,8 @@ function App() {
                     id="option"
                     value="1"
                     name="palette"
-                    checked
+                    checked = {person.palette === '1'}
+                    onChange={handleInput}
                   />
                   <img
                     className="election__img"
@@ -157,6 +178,8 @@ function App() {
                     id="option"
                     value="2"
                     name="palette"
+                    checked = {person.palette === '2'}
+                    onChange={handleInput}
                   />
                   <img
                     className="election__img"
@@ -172,6 +195,8 @@ function App() {
                     id="option"
                     value="3"
                     name="palette"
+                    checked = {person.palette === '3'}
+                    onChange={handleInput}
                   />
                   <img
                     className="election__img"
@@ -188,13 +213,13 @@ function App() {
           <fieldset className="fieldset_stuffed">
             <div className="option">
               <span className="option__span">
-                <i className="fa-regular fa-keyboard"></i>
+                <FaKeyboard></FaKeyboard>
                 <h3 className="option__title">Rellena</h3>
               </span>
-              <i className="fa-solid fa-chevron-down"></i>
+              <FaChevronDown></FaChevronDown>
             </div>
 
-            <div>
+            <div className= "stuffed">
               {/*<!-- class = stuffed añadir con JS-->
               COLLAPSED*/}
               <label className="stuffed__label" htmlFor="full_name">
@@ -232,14 +257,14 @@ function App() {
                 <label htmlFor="profileImage" className="add-image">
                   Añadir imagen
                 </label>
-                <input
+                {/* <input
                   value = {person.images}
                   onInput={handleInput}
                   type="file"
                   id="profileImage"
                   title="Add image"
                   name="images"
-                />
+                /> */}
                 <div className="preview-image stuffed__input"></div>
               </div>
 
@@ -304,12 +329,12 @@ function App() {
           <fieldset className="fieldset_share">
             <div className="option">
               <span className="option__span">
-                <i className="fa-solid fa-share-nodes"></i>
+                <FaShareAlt></FaShareAlt>
                 <h3 className="option__title">Comparte</h3>
               </span>
-              <i className="fa-solid fa-chevron-down"></i>
+              <FaChevronDown></FaChevronDown>
             </div>
-            <div>
+            <div className= "share">
               {/* <!-- class = share añadir con JS--> 
               COLLAPSED*/}
               <button
@@ -318,11 +343,11 @@ function App() {
                 value="create-card"
               >
                 {' '}
-                <i className="fa-solid fa-address-card share-icon"></i> Crear
+                <FaIdCard></FaIdCard> Crear
                 tarjeta{' '}
               </button>
             </div>
-            <div>
+            <div className='created'>
               {/*<!-- class = created añadir con JS-->
               COLLAPSED*/}
               <h4 className="created__title">La tarjeta ha sido creada:</h4>
@@ -331,7 +356,7 @@ function App() {
               </a>
               <a href="#" className="twitter" target="_blank">
                 {' '}
-                <i className="fa-brands fa-twitter twitter-icon"></i>
+                <FaTwitter></FaTwitter>
                 Compartir en twitter
               </a>
             </div>
@@ -342,8 +367,8 @@ function App() {
         <small className="footer__small">Debuggers Cards ©2022</small>
         <a href="./index.html">
           <img
-            className={logoAdalab}
-            src="./assets/images/logo-adalab.png"
+            className="footer__logo"
+            src={logo}
             alt="Logo Adalab"
           />
         </a>
