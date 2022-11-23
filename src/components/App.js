@@ -71,6 +71,7 @@ function App() {
             >
               <FaTrashAlt></FaTrashAlt>
               Reset
+           
             </button>
           </div>
           <article className="card ">
