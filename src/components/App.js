@@ -80,7 +80,7 @@ function App() {
           <img className="header-create__img" src={iconLogo} alt="logo awesome" />
         {/* </a> */}
       </header>
-      <main className="main-create">
+      <main className={`main-create ${selectedPalette}`}>
         <section className="card-section ">
           <div className="reset">
             <button
@@ -94,7 +94,7 @@ function App() {
            
             </button>
           </div>
-          <article className={`card ${selectedPalette}`}>
+          <article className= {`card ${selectedPalette}`}> 
             <div className="card__text ">
               <h3 className="card__text_title">{(person.full_name === '') ? 'Nombre Apellidos' : person.full_name}</h3>
               <p className="card__text_subtitle">{(person.job === '') ? 'Front-end developer' : person.job}</p>
