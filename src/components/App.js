@@ -18,8 +18,8 @@ import {
   FaTwitter,
   FaIdCard,
 
-
 } from 'react-icons/fa';
+
 
 
 function App() {
@@ -27,6 +27,7 @@ function App() {
   const handleForm = (e) => {
     e.preventDefault();
   }
+  const [desplegable, setDesplegable] = useState();
 
   const [person, setPerson] = useState({
     palette: '1',
@@ -55,18 +56,19 @@ function App() {
     selectedPalette = 'palette3';
   } else {
     selectedPalette = 'palette1';
-    }
+  }
 
-  const handleReset = () =>{
-    setPerson({ 
-    palette: '1',
-    full_name: '',
-    job: '',
-    email: '',
-    phone: '',
-    github: '',
-    linkedin: '',
-    images: '', });
+  const handleReset = () => {
+    setPerson({
+      palette: '1',
+      full_name: '',
+      job: '',
+      email: '',
+      phone: '',
+      github: '',
+      linkedin: '',
+      images: '',
+    });
   };
   return (
     <>
@@ -77,7 +79,7 @@ function App() {
           title="Debuggers Cards"
           alt="Debuggers Cards"
         > */}
-          <img className="header-create__img" src={iconLogo} alt="logo awesome" />
+        <img className="header-create__img" src={iconLogo} alt="logo awesome" />
         {/* </a> */}
       </header>
       <main className={`main-create ${selectedPalette}`}>
@@ -91,12 +93,12 @@ function App() {
             >
               <FaTrashAlt className="icon-trash"></FaTrashAlt>
               Reset
-           
+
             </button>
           </div>
-          <article className= {`card ${selectedPalette}`}> 
-            <div className="card__text ">
-              <h3 className="card__text_title">{(person.full_name === '') ? 'Nombre Apellidos' : person.full_name}</h3>
+          <article className={`card ${selectedPalette}`}>
+            <div className="js-card-border card__text ">
+              <h3 className="js-card-name card__text_title">{(person.full_name === '') ? 'Nombre Apellidos' : person.full_name}</h3>
               <p className="card__text_subtitle">{(person.job === '') ? 'Front-end developer' : person.job}</p>
             </div>
             <div
@@ -107,22 +109,22 @@ function App() {
             <ul className="card__social">
               <li>
                 <a href={`tel:${person.phone}`} target="_blank" title="Telephone" alt="Telephone">
-                  <FaMobileAlt className="icon-movil fa-brands"></FaMobileAlt>
-                </a> 
+                  <FaMobileAlt className="js-card-icon icon-movil fa-brands"></FaMobileAlt>
+                </a>
               </li>
               <li>
                 <a href={`mailto:${person.email}`} target="_blank" title="E-mail" alt="E-mail">
-                  <FaEnvelopeOpenText className="icon-email fa-brands" ></FaEnvelopeOpenText>
+                  <FaEnvelopeOpenText className="js-card-icon icon-email fa-brands" ></FaEnvelopeOpenText>
                 </a>
               </li>
               <li>
                 <a href={`https://www.linkedin.com/in/${person.linkedin}`} target="_blank" title="LinkedIn" alt="LinkedIn">
-                  <FaLinkedin className="icon-linkedin fa-brands" ></FaLinkedin>
+                  <FaLinkedin className="js-card-icon icon-linkedin fa-brands" ></FaLinkedin>
                 </a>
               </li>
               <li>
                 <a href={`https://github.com/${person.github}`} target="_blank" title="Github" alt="Github">
-                  <FaGithubAlt className="icon-github fa-brands"></FaGithubAlt>
+                  <FaGithubAlt className="js-card-icon icon-github fa-brands"></FaGithubAlt>
                 </a>
               </li>
               <li>
@@ -132,7 +134,7 @@ function App() {
                   title="Debuggers Cards"
                   alt="Debuggers Cards"
                 > */}
-                  <img src={iconLogo} className="icon-logo" />
+                <img src={iconLogo} className="icon-logo" />
                 {/* </a> */}
               </li>
             </ul>
@@ -161,7 +163,7 @@ function App() {
                     id="option"
                     value="1"
                     name="palette"
-                    checked = {person.palette === '1'}
+                    checked={person.palette === '1'}
                     onChange={handleInput}
                   />
                   <img
@@ -178,7 +180,7 @@ function App() {
                     id="option"
                     value="2"
                     name="palette"
-                    checked = {person.palette === '2'}
+                    checked={person.palette === '2'}
                     onChange={handleInput}
                   />
                   <img
@@ -195,7 +197,7 @@ function App() {
                     id="option"
                     value="3"
                     name="palette"
-                    checked = {person.palette === '3'}
+                    checked={person.palette === '3'}
                     onChange={handleInput}
                   />
                   <img
@@ -219,14 +221,14 @@ function App() {
               <FaChevronDown></FaChevronDown>
             </div>
 
-            <div className= "stuffed">
+            <div className="stuffed">
               {/*<!-- class = stuffed añadir con JS-->
               COLLAPSED*/}
               <label className="stuffed__label" htmlFor="full_name">
                 Nombre completo
               </label>
               <input
-                value = {person.full_name}
+                value={person.full_name}
                 className="stuffed__input"
                 placeholder="Ej: Sally Jill"
                 onInput={handleInput}
@@ -240,7 +242,7 @@ function App() {
                 Puesto
               </label>
               <input
-                value = {person.job}
+                value={person.job}
                 className="stuffed__input"
                 placeholder="Ej: Front-end unicorn"
                 onInput={handleInput}
@@ -272,7 +274,7 @@ function App() {
                 Email{' '}
               </label>
               <input
-                value= {person.email}
+                value={person.email}
                 className="stuffed__input"
                 placeholder="Ej: sally.hill@gmail.com"
                 onInput={handleInput}
@@ -286,7 +288,7 @@ function App() {
                 Teléfono
               </label>
               <input
-                value= {person.phone}
+                value={person.phone}
                 className="stuffed__input"
                 placeholder="Ej: 555-55-55-55"
                 type="tel"
@@ -299,7 +301,7 @@ function App() {
                 Linkedin
               </label>
               <input
-                value= {person.linkedin}
+                value={person.linkedin}
                 className="stuffed__input"
                 placeholder="Ej: linkedin.com/in/sally-hill"
                 onInput={handleInput}
@@ -312,7 +314,7 @@ function App() {
                 Github
               </label>
               <input
-                value= {person.github}
+                value={person.github}
                 className="stuffed__input"
                 placeholder="Ej: sally-hill"
                 onInput={handleInput}
@@ -334,7 +336,7 @@ function App() {
               </span>
               <FaChevronDown></FaChevronDown>
             </div>
-            <div className= "share">
+            <div className="share">
               {/* <!-- class = share añadir con JS--> 
               COLLAPSED*/}
               <button
