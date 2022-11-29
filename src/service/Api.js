@@ -2,10 +2,11 @@ const dataApi = (data) => {
     return fetch('https://dev.adalab.es/api/card', {
         method: 'POST',
         body: JSON.stringify(data),
-        headers: { 'content-type': 'application/json' },
+        headers: { 'Content-type': 'application/json' },
     })
-        .then((response) => response.json())
+        .then((data) => data.json())
         .then((data) => {
+            console.log(data);
             return data;
         });
 };

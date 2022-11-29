@@ -1,5 +1,6 @@
 import '../styles/App.scss';
-import ls from './localStorage.js'
+import ls from '../service/LocalStorage.js'
+import dataApi from '../service/Api';
 import { useState } from 'react';
 import logo from '../images/logo-adalab.png';
 import iconLogo from '../images/icono-logo.png';
@@ -18,10 +19,7 @@ import {
   FaRegObjectUngroup,
   FaTwitter,
   FaIdCard,
-
 } from 'react-icons/fa';
-import dataApi from '../service/Api';
-
 
 function App() {
 //TODO: add twitter link to the ls
@@ -34,23 +32,21 @@ function App() {
 
   const [person, setPerson] = useState(ls.get('fullObject', {
     palette: '1',
-    full_name: '',
+    name: '',
     job: '',
     email: '',
     phone: '',
     github: '',
     linkedin: '',
-    images: '',
-  });
+    photo: 'http://placekitten.com/200/300',
+  }));
 
   const handleClick = (e) => {
     console.log('dame click y dime veneno');
     e.preventDefault();
 
-    dataApi(person).then((data) => {
-      console.log(person);
-      setDataResult(data)
-    });
+    dataApi(person).then((data) => 
+      setDataResult(data));
 
   };
 
@@ -76,13 +72,13 @@ function App() {
   const handleReset = () => {
     setPerson({
       palette: '1',
-      full_name: '',
+      name: '',
       job: '',
       email: '',
       phone: '',
       github: '',
       linkedin: '',
-      images: '',
+      photo: '',
     });
     ls.clear();
   };
@@ -114,7 +110,7 @@ function App() {
           </div>
           <article className={`card ${selectedPalette}`}>
             <div className="js-card-border card__text ">
-              <h3 className="js-card-name card__text_title">{(person.full_name === '') ? 'Nombre Apellidos' : person.full_name}</h3>
+              <h3 className="js-card-name card__text_title">{(person.name === '') ? 'Nombre Apellidos' : person.name}</h3>
               <p className="card__text_subtitle">{(person.job === '') ? 'Front-end developer' : person.job}</p>
             </div>
             <div
@@ -124,29 +120,29 @@ function App() {
             ></div>
             <ul className="card__social">
               <li>
-                <a href={`tel:${person.phone}`} target="_blank" title="Telephone" alt="Telephone">
+                <a href={`tel:${person.phone}`} target="_blank" rel="noreferrer" title="Telephone" alt="Telephone">
                   <FaMobileAlt className="js-card-icon icon-movil fa-brands"></FaMobileAlt>
                 </a>
               </li>
               <li>
-                <a href={`mailto:${person.email}`} target="_blank" title="E-mail" alt="E-mail">
+                <a href={`mailto:${person.email}`} target="_blank" rel="noreferrer" title="E-mail" alt="E-mail">
                   <FaEnvelopeOpenText className="js-card-icon icon-email fa-brands" ></FaEnvelopeOpenText>
                 </a>
               </li>
               <li>
-                <a href={`https://www.linkedin.com/in/${person.linkedin}`} target="_blank" title="LinkedIn" alt="LinkedIn">
+                <a href={`https://www.linkedin.com/in/${person.linkedin}`} target="_blank" rel="noreferrer" title="LinkedIn" alt="LinkedIn">
                   <FaLinkedin className="js-card-icon icon-linkedin fa-brands" ></FaLinkedin>
                 </a>
               </li>
               <li>
-                <a href={`https://github.com/${person.github}`} target="_blank" title="Github" alt="Github">
+                <a href={`https://github.com/${person.github}`} target="_blank" rel="noreferrer" title="Github" alt="Github">
                   <FaGithubAlt className="js-card-icon icon-github fa-brands"></FaGithubAlt>
                 </a>
               </li>
               <li>
                 {/* <a
                   href="http://beta.adalab.es/project-promo-r-module-2-team-9/"
-                  target="_blank"
+                  target="_blank" rel="noreferrer"
                   title="Debuggers Cards"
                   alt="Debuggers Cards"
                 > */}
@@ -240,17 +236,17 @@ function App() {
             <div className="stuffed">
               {/*<!-- class = stuffed añadir con JS-->
               COLLAPSED*/}
-              <label className="stuffed__label" htmlFor="full_name">
+              <label className="stuffed__label" htmlFor="name">
                 Nombre completo
               </label>
               <input
-                value={person.full_name}
+                value={person.name}
                 className="stuffed__input"
                 placeholder="Ej: Sally Jill"
                 onInput={handleInput}
                 id="firstName"
                 type="text"
-                name="full_name"
+                name="name"
                 required
               />
 
@@ -276,12 +272,12 @@ function App() {
                   Añadir imagen
                 </label>
                 {/* <input
-                  value = {person.images}
+                  value = {person.photo}
                   onInput={handleInput}
                   type="file"
                   id="profileImage"
                   title="Add image"
-                  name="images"
+                  name="photo"
                 /> */}
                 <div className="preview-image stuffed__input"></div>
               </div>
@@ -370,10 +366,9 @@ function App() {
               {/*<!-- class = created añadir con JS-->
               COLLAPSED*/}
               <h4 className="created__title">La tarjeta ha sido creada:</h4>
-              <a href={dataResult.cardURL} className="created__link" target="_blank">
-                {dataResult.success ? dataResult.cardURL : `error jejeje`}
-              </a>
-              <a href="#" className="twitter" target="_blank">
+              
+                {dataResult.success ? <a href={dataResult.cardURL} className="created__link" target="_blank" rel="noreferrer">jajaja </a>: `Por cada campo vacío, un gatito llora`}
+              <a href="#" className="twitter" target="_blank" rel="noreferrer">
                 <FaTwitter></FaTwitter>
                 Compartir en twitter
               </a>
