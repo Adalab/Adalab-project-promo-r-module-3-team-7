@@ -1,4 +1,5 @@
 import '../styles/App.scss';
+import ls from './localStorage.js'
 import { useState } from 'react';
 import logo from '../images/logo-adalab.png';
 import iconLogo from '../images/icono-logo.png';
@@ -23,13 +24,13 @@ import {
 
 
 function App() {
-
+//TODO: add twitter link to the ls
   const handleForm = (e) => {
     e.preventDefault();
   }
   const [desplegable, setDesplegable] = useState();
 
-  const [person, setPerson] = useState({
+  const [person, setPerson] = useState(ls.get('fullObject', {
     palette: '1',
     full_name: '',
     job: '',
@@ -38,14 +39,14 @@ function App() {
     github: '',
     linkedin: '',
     images: '',
-  });
+  }));
   const handleInput = (e) => {
     const inputValue = e.target.value;
     const inputName = e.target.name;
     setPerson({ ...person, [inputName]: inputValue });
     console.log(inputName);
     console.log(inputValue);
-
+    ls.set('fullObject', person);
     // const classApp = (name === 'MariCarmen') ? 'palette1' : '';
   };
 
@@ -69,6 +70,7 @@ function App() {
       linkedin: '',
       images: '',
     });
+    ls.clear();
   };
   return (
     <>
