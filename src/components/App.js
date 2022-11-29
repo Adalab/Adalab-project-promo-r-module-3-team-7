@@ -20,7 +20,7 @@ import {
   FaIdCard,
 
 } from 'react-icons/fa';
-
+import dataApi from '../service/Api';
 
 
 function App() {
@@ -28,7 +28,9 @@ function App() {
   const handleForm = (e) => {
     e.preventDefault();
   }
-  const [desplegable, setDesplegable] = useState();
+  // const [dataCard, setDataCard] = useState({});
+
+  const [dataResult, setDataResult] = useState({});
 
   const [person, setPerson] = useState(ls.get('fullObject', {
     palette: '1',
@@ -39,7 +41,19 @@ function App() {
     github: '',
     linkedin: '',
     images: '',
-  }));
+  });
+
+  const handleClick = (e) => {
+    console.log('dame click y dime veneno');
+    e.preventDefault();
+
+    dataApi(person).then((data) => {
+      console.log(person);
+      setDataResult(data)
+    });
+
+  };
+
   const handleInput = (e) => {
     const inputValue = e.target.value;
     const inputName = e.target.name;
@@ -345,6 +359,7 @@ function App() {
                 className="share__button"
                 name="create-card"
                 value="create-card"
+                onClick={handleClick}
               >
                 {' '}
                 <FaIdCard></FaIdCard> Crear
@@ -355,11 +370,10 @@ function App() {
               {/*<!-- class = created añadir con JS-->
               COLLAPSED*/}
               <h4 className="created__title">La tarjeta ha sido creada:</h4>
-              <a href="#" className="created__link" target="_blank">
-                Link
+              <a href={dataResult.cardURL} className="created__link" target="_blank">
+                {dataResult.success ? dataResult.cardURL : `error jejeje`}
               </a>
               <a href="#" className="twitter" target="_blank">
-                {' '}
                 <FaTwitter></FaTwitter>
                 Compartir en twitter
               </a>
