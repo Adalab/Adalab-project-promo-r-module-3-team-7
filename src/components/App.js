@@ -367,7 +367,7 @@ function App() {
               COLLAPSED*/}
               <h4 className="created__title">La tarjeta ha sido creada:</h4>
               
-                {dataResult.success ? <a href={dataResult.cardURL} className="created__link" target="_blank" rel="noreferrer">jajaja </a>: `Por cada campo vacío, un gatito llora`}
+                {dataResult.success ? <a href={dataResult.cardURL} className="created__link" target="_blank" rel="noreferrer">Por cada campo vacío, un gatito llora. Por favor, ¡revisa tu formulario!</a>: `Por cada campo vacío, un gatito llora`}
               <a href="#" className="twitter" target="_blank" rel="noreferrer">
                 <FaTwitter></FaTwitter>
                 Compartir en twitter
