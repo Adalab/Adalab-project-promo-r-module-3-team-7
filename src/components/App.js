@@ -27,6 +27,9 @@ function App() {
     e.preventDefault();
   }
   // const [dataCard, setDataCard] = useState({});
+  const [toggleCreateCard, setToggleCreateCard] = useState('');
+
+  const [toggleForm, setToggleForm] = useState('design');
 
   const [dataResult, setDataResult] = useState({});
 
@@ -41,9 +44,17 @@ function App() {
     photo: 'http://placekitten.com/200/300',
   }));
 
+  const handleCreateCard = (e) => {
+    setToggleCreateCard(e.currentTarget.id);
+    toggleCreateCard ? setToggleCreateCard('') : setToggleCreateCard('collapsed');
+  }
+
+  const handleToggleForm = (e) => {
+    setToggleForm(e.currentTarget.id);
+  };
+
   const handleClick = (e) => {
-    console.log('dame click y dime veneno');
-    e.preventDefault();
+     e.preventDefault();
 
     dataApi(person).then((data) => 
       setDataResult(data));
@@ -156,15 +167,15 @@ function App() {
           {/* {/*<!--aquí va el link en js -->/ */}
 
           <fieldset className="design">
-            <div className="option ">
+            <div className="option" onClick={handleToggleForm} id="design">
               <span className="option__span">
                 <FaRegObjectUngroup></FaRegObjectUngroup>
                 <h3 className="option__title">Diseña</h3>
               </span>
-              <FaChevronDown></FaChevronDown>
+              <FaChevronDown className={toggleForm === 'design' ? '' : 'turn-around'}></FaChevronDown>
             </div>
 
-            <div className="election ">
+            <div className={`election ${toggleForm === 'design' ? '' : 'collapsed'}`}>
               <legend className="election__title">Colores</legend>
 
               <span className="election__span">
@@ -225,15 +236,15 @@ function App() {
           {/*<!------------------------RELLENA------------------------------------>*/}
 
           <fieldset className="fieldset_stuffed">
-            <div className="option">
+            <div className="option" onClick={handleToggleForm} id="fill">
               <span className="option__span">
                 <FaKeyboard></FaKeyboard>
                 <h3 className="option__title">Rellena</h3>
               </span>
-              <FaChevronDown></FaChevronDown>
+              <FaChevronDown className={toggleForm === 'fill' ? '' : 'turn-around'}></FaChevronDown>
             </div>
 
-            <div className="stuffed">
+            <div className={`stuffed ${toggleForm === 'fill' ? '' : 'collapsed'}`}>
               {/*<!-- class = stuffed añadir con JS-->
               COLLAPSED*/}
               <label className="stuffed__label" htmlFor="name">
@@ -341,14 +352,14 @@ function App() {
           {/*<!------------------------COMPARTE------------------------------------>*/}
 
           <fieldset className="fieldset_share">
-            <div className="option">
+            <div className="option" onClick={handleToggleForm} id="share">
               <span className="option__span">
                 <FaShareAlt></FaShareAlt>
                 <h3 className="option__title">Comparte</h3>
               </span>
-              <FaChevronDown></FaChevronDown>
+              <FaChevronDown className={toggleForm === 'share' ? '' : 'turn-around'}></FaChevronDown>
             </div>
-            <div className="share">
+            <div className={`share ${toggleForm === 'share' ? '' : 'collapsed'}`}>
               {/* <!-- class = share añadir con JS--> 
               COLLAPSED*/}
               <button
@@ -362,12 +373,11 @@ function App() {
                 tarjeta{' '}
               </button>
             </div>
-            <div className='created'>
-              {/*<!-- class = created añadir con JS-->
-              COLLAPSED*/}
+            <div className={`created ${toggleCreateCard} ||created`} onClick={handleCreateCard} id='createCard'> TODO: revisar esto
+
+
               <h4 className="created__title">La tarjeta ha sido creada:</h4>
-              
-                {dataResult.success ? <a href={dataResult.cardURL} className="created__link" target="_blank" rel="noreferrer">Por cada campo vacío, un gatito llora. Por favor, ¡revisa tu formulario!</a>: `Por cada campo vacío, un gatito llora`}
+                {dataResult.success ? <a href={dataResult.cardURL} className="created__link" target="_blank" rel="noreferrer">Aquí tienes tu link: {dataResult.cardURL} </a>: `Por cada campo vacío, un gatito llora`}
               <a href="#" className="twitter" target="_blank" rel="noreferrer">
                 <FaTwitter></FaTwitter>
                 Compartir en twitter

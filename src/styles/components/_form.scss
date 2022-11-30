@@ -20,9 +20,6 @@
   transform: rotate(180deg);
 }
 
-.collapsed {
-  display: none;
-}
 
 //------------------------DISEÑA------------------------------------//
 
@@ -88,7 +85,7 @@
     height: 17px;
     margin-right: 10px;
   }
-
+  
   &__img {
     width: 100px;
   }
@@ -109,7 +106,7 @@
     margin-bottom: 7px;
     line-height: 20px;
   }
-
+  
   &__input {
     border: solid 1px $hospital-green;
     margin-bottom: 20px;
@@ -239,3 +236,12 @@
 .change-color-icon {
   color: $grey-checked;
 }
+
+
+.noCollapsed {
+  display: inline;
+}
+
+  .collapsed {
+    display: none;
+  }
