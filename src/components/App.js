@@ -46,22 +46,7 @@ function App() {
 
   // }
 
-  const renderShareCode = () => {
-    if (toggleCard === true) {
-      return (
-        <>
-          <div className="created">
-            <h4 className="created__title">La tarjeta ha sido creada:</h4>
-            {dataResult.success ? <a href={dataResult.cardURL} className="created__link" target="_blank" rel="noreferrer">Aquí tienes tu link: {dataResult.cardURL} </a> : `Por cada campo vacío, un gatito llora`}
-            <a href="#" className="twitter" target="_blank" rel="noreferrer">
-              <FaTwitter></FaTwitter>
-              Compartir en twitter
-            </a>
-          </div>
-        </>
-      );
-    }
-  }
+ 
 
 
   const handleToggleForm = (value) => {
@@ -71,8 +56,7 @@ function App() {
   const handleClick = (e) => {
     e.preventDefault();
 
-    console.log('mehanclickao');
-    setToggleCard(!toggleCard);
+    setToggleCard(true);
 
     dataApi(person).then((data) =>
       setDataResult(data));
@@ -110,6 +94,7 @@ function App() {
       photo: '',
     });
     ls.clear();
+    setToggleCard(false);
   };
   return (
     <>
@@ -129,14 +114,14 @@ function App() {
             handleInput={handleInput} />
 
           {/*<!------------------------RELLENA------------------------------------>*/}
-            <Fill
+          <Fill
               handleToggleForm={handleToggleForm} person={person
               } handleInput={handleInput} toggleForm={toggleForm}/>
               
           {/*<!------------------------COMPARTE------------------------------------>*/}
           <Share
               handleToggleForm={handleToggleForm} person={person
-              } handleInput={handleInput} toggleForm={toggleForm}/>
+              } handleInput={handleInput} toggleForm={toggleForm} dataResult={dataResult} toggleCard={toggleCard} handleClick={handleClick}/>
          
         </form>
       </main>
