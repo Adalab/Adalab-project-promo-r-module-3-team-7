@@ -378,7 +378,7 @@ function App() {
 
               <h4 className="created__title">La tarjeta ha sido creada:</h4>
                 {dataResult.success ? <a href={dataResult.cardURL} className="created__link" target="_blank" rel="noreferrer">Aquí tienes tu link: {dataResult.cardURL} </a>: `Por cada campo vacío, un gatito llora`}
-              <a href="#" className="twitter" target="_blank" rel="noreferrer">
+              <a href={`https://twitter.com/intent/tweet?text=Nueva%20tarjeta%20creada%20${cardUrl}`} className="twitter" target="_blank" rel="noreferrer">
                 <FaTwitter></FaTwitter>
                 Compartir en twitter
               </a>
