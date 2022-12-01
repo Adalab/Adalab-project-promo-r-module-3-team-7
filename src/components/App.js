@@ -8,11 +8,6 @@ import palette1 from '../images/palette-color-1.png';
 import palette2 from '../images/palette-color-2.png';
 import palette3 from '../images/palette-color-3.png';
 import {
-  FaGithubAlt,
-  FaTrashAlt,
-  FaMobileAlt,
-  FaLinkedin,
-  FaEnvelopeOpenText,
   FaKeyboard,
   FaShareAlt,
   FaChevronDown,
@@ -22,7 +17,7 @@ import {
 } from 'react-icons/fa';
 import Header from './Header';
 import Footer from "./Footer";
-
+import CardPreview from './CardPreview';
 function App() {
   //TODO: add twitter link to the ls
   //TODO: tenemos un error de id repetido
@@ -121,63 +116,11 @@ function App() {
     <>
       <Header />
       <main className={`main-create ${selectedPalette}`}>
-        <section className="card-section ">
-          <div className="reset">
-            <button
-              type="reset"
-              className="reset__button "
-              title="Reset button"
-              onClick={handleReset}
-            >
-              <FaTrashAlt className="icon-trash"></FaTrashAlt>
-              Reset
-
-            </button>
-          </div>
-          <article className={`card ${selectedPalette}`}>
-            <div className="js-card-border card__text ">
-              <h3 className="js-card-name card__text_title">{(person.name === '') ? 'Nombre Apellidos' : person.name}</h3>
-              <p className="card__text_subtitle">{(person.job === '') ? 'Front-end developer' : person.job}</p>
-            </div>
-            <div
-              className="card__image "
-              title="Preview image"
-              alt="Preview image"
-            ></div>
-            <ul className="card__social">
-              <li>
-                <a href={`tel:${person.phone}`} target="_blank" rel="noreferrer" title="Telephone" alt="Telephone">
-                  <FaMobileAlt className="js-card-icon icon-movil fa-brands"></FaMobileAlt>
-                </a>
-              </li>
-              <li>
-                <a href={`mailto:${person.email}`} target="_blank" rel="noreferrer" title="E-mail" alt="E-mail">
-                  <FaEnvelopeOpenText className="js-card-icon icon-email fa-brands" ></FaEnvelopeOpenText>
-                </a>
-              </li>
-              <li>
-                <a href={`https://www.linkedin.com/in/${person.linkedin}`} target="_blank" rel="noreferrer" title="LinkedIn" alt="LinkedIn">
-                  <FaLinkedin className="js-card-icon icon-linkedin fa-brands" ></FaLinkedin>
-                </a>
-              </li>
-              <li>
-                <a href={`https://github.com/${person.github}`} target="_blank" rel="noreferrer" title="Github" alt="Github">
-                  <FaGithubAlt className="js-card-icon icon-github fa-brands"></FaGithubAlt>
-                </a>
-              </li>
-              <li>
-                {/* <a
-                  href="http://beta.adalab.es/project-promo-r-module-2-team-9/"
-                  target="_blank" rel="noreferrer"
-                  title="Debuggers Cards"
-                  alt="Debuggers Cards"
-                > */}
-                <img src={iconLogo} className="icon-logo" />
-                {/* </a> */}
-              </li>
-            </ul>
-          </article>
-        </section>
+        <CardPreview
+          handleReset={handleReset}
+          selectedPalette={selectedPalette}
+          person={person}
+        ></CardPreview>
         <form method="get" action="" className="form" onSubmit={handleForm}>
           {/* {/*<!--aquí va el link en js -->/ */}
 
