@@ -20,10 +20,11 @@ import {
   FaTwitter,
   FaIdCard,
 } from 'react-icons/fa';
+import Header from './Header';
 
 function App() {
-//TODO: add twitter link to the ls
-//TODO: tenemos un error de id repetido
+  //TODO: add twitter link to the ls
+  //TODO: tenemos un error de id repetido
   const handleForm = (e) => {
     e.preventDefault();
   }
@@ -54,18 +55,18 @@ function App() {
     if (toggleCard === true) {
       return (
         <>
-        <div className="created">
-        <h4 className="created__title">La tarjeta ha sido creada:</h4>
-          {dataResult.success ? <a href={dataResult.cardURL} className="created__link" target="_blank" rel="noreferrer">Aquí tienes tu link: {dataResult.cardURL} </a>: `Por cada campo vacío, un gatito llora`}
-        <a href="#" className="twitter" target="_blank" rel="noreferrer">
-          <FaTwitter></FaTwitter>
-          Compartir en twitter
-        </a>
-      </div>
-      </>
+          <div className="created">
+            <h4 className="created__title">La tarjeta ha sido creada:</h4>
+            {dataResult.success ? <a href={dataResult.cardURL} className="created__link" target="_blank" rel="noreferrer">Aquí tienes tu link: {dataResult.cardURL} </a> : `Por cada campo vacío, un gatito llora`}
+            <a href="#" className="twitter" target="_blank" rel="noreferrer">
+              <FaTwitter></FaTwitter>
+              Compartir en twitter
+            </a>
+          </div>
+        </>
       );
+    }
   }
-}
 
 
   const handleToggleForm = (e) => {
@@ -78,7 +79,7 @@ function App() {
     console.log('mehanclickao');
     setToggleCard(!toggleCard);
 
-    dataApi(person).then((data) => 
+    dataApi(person).then((data) =>
       setDataResult(data));
 
   };
@@ -117,16 +118,7 @@ function App() {
   };
   return (
     <>
-      <header className="header-create">
-        {/* TODO: future link to preview-page */}
-        {/* <a
-          href="http://beta.adalab.es/project-promo-r-module-2-team-9/"
-          title="Debuggers Cards"
-          alt="Debuggers Cards"
-        > */}
-        <img className="header-create__img" src={iconLogo} alt="logo awesome" />
-        {/* </a> */}
-      </header>
+      <Header />
       <main className={`main-create ${selectedPalette}`}>
         <section className="card-section ">
           <div className="reset">
@@ -395,7 +387,7 @@ function App() {
                 tarjeta{' '}
               </button>
             </div>
-           {renderShareCode()}
+            {renderShareCode()}
           </fieldset>
         </form>
       </main>
