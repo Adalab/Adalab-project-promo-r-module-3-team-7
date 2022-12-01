@@ -8,12 +8,12 @@ import {
 } from 'react-icons/fa';
 
 const Design = (props) => {
-    const handleDesign = (e) => {
+    const handleToggle = (e) => { //same function in 3 sections of the form
         props.handleToggleForm(e.currentTarget.id);
     }
     return (
         <fieldset className="design">
-            <div className="option" onClick={handleDesign} id="design">
+            <div className="option" onClick={handleToggle} id="design">
                 <span className="option__span">
                     <FaRegObjectUngroup></FaRegObjectUngroup>
                     <h3 className="option__title">Diseña</h3>

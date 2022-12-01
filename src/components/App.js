@@ -6,7 +6,6 @@ import { useState } from 'react';
 import iconLogo from '../images/icono-logo.png';
 
 import {
-  FaKeyboard,
   FaShareAlt,
   FaChevronDown,
   FaTwitter,
@@ -16,6 +15,8 @@ import Header from './Header';
 import Footer from "./Footer";
 import CardPreview from './CardPreview';
 import Design from './Design';
+import Fill from "./Fill";
+import Share from "./Share";
 function App() {
   //TODO: add twitter link to the ls
   //TODO: tenemos un error de id repetido
@@ -114,11 +115,11 @@ function App() {
     <>
       <Header />
       <main className={`main-create ${selectedPalette}`}>
-        <CardPreview
+      <CardPreview
           handleReset={handleReset}
           selectedPalette={selectedPalette}
-          person={person}
-        ></CardPreview>
+          person={person}/>
+   
         <form method="get" action="" className="form" onSubmit={handleForm}>
           {/* {/*<!--aquí va el link en js -->/ */}
 
@@ -128,147 +129,15 @@ function App() {
             handleInput={handleInput} />
 
           {/*<!------------------------RELLENA------------------------------------>*/}
-
-          <fieldset className="fieldset_stuffed">
-            <div className="option" onClick={handleToggleForm} id="fill">
-              <span className="option__span">
-                <FaKeyboard></FaKeyboard>
-                <h3 className="option__title">Rellena</h3>
-              </span>
-              <FaChevronDown className={toggleForm === 'fill' ? '' : 'turn-around'}></FaChevronDown>
-            </div>
-
-            <div className={`stuffed ${toggleForm === 'fill' ? '' : 'collapsed'}`}>
-              {/*<!-- class = stuffed añadir con JS-->
-              COLLAPSED*/}
-              <label className="stuffed__label" htmlFor="name">
-                Nombre completo
-              </label>
-              <input
-                value={person.name}
-                className="stuffed__input"
-                placeholder="Ej: Sally Jill"
-                onInput={handleInput}
-                id="firstName"
-                type="text"
-                name="name"
-                required
-              />
-
-              <label className="stuffed__label" htmlFor="job">
-                Puesto
-              </label>
-              <input
-                value={person.job}
-                className="stuffed__input"
-                placeholder="Ej: Front-end unicorn"
-                onInput={handleInput}
-                id="job"
-                type="text"
-                name="job"
-                required
-              />
-
-              <label className="stuffed__label" htmlFor="profileImage">
-                Imagen de perfil
-              </label>
-              <div className="stuffed__image">
-                <label htmlFor="profileImage" className="add-image">
-                  Añadir imagen
-                </label>
-                {/* <input
-                  value = {person.photo}
-                  onInput={handleInput}
-                  type="file"
-                  id="profileImage"
-                  title="Add image"
-                  name="photo"
-                /> */}
-                <div className="preview-image stuffed__input"></div>
-              </div>
-
-              <label className=" stuffed__label" htmlFor="email">
-                Email{' '}
-              </label>
-              <input
-                value={person.email}
-                className="stuffed__input"
-                placeholder="Ej: sally.hill@gmail.com"
-                onInput={handleInput}
-                type="email"
-                id="emailAddress"
-                name="email"
-                required
-              />
-
-              <label className="stuffed__label" htmlFor="phone">
-                Teléfono
-              </label>
-              <input
-                value={person.phone}
-                className="stuffed__input"
-                placeholder="Ej: 555-55-55-55"
-                type="tel"
-                id="telephone"
-                onInput={handleInput}
-                name="phone"
-              />
-
-              <label className="stuffed__label" htmlFor="linkedin">
-                Linkedin
-              </label>
-              <input
-                value={person.linkedin}
-                className="stuffed__input"
-                placeholder="Ej: linkedin.com/in/sally-hill"
-                onInput={handleInput}
-                id="linkedin"
-                type="text"
-                name="linkedin"
-                required
-              />
-              <label className="stuffed__label" htmlFor="github">
-                Github
-              </label>
-              <input
-                value={person.github}
-                className="stuffed__input"
-                placeholder="Ej: sally-hill"
-                onInput={handleInput}
-                id="github"
-                type="text"
-                name="github"
-                required
-              />
-            </div>
-          </fieldset>
-
+            <Fill
+              handleToggleForm={handleToggleForm} person={person
+              } handleInput={handleInput} toggleForm={toggleForm}/>
+              
           {/*<!------------------------COMPARTE------------------------------------>*/}
-
-          <fieldset className="fieldset_share">
-            <div className="option" onClick={handleToggleForm} id="share">
-              <span className="option__span">
-                <FaShareAlt></FaShareAlt>
-                <h3 className="option__title">Comparte</h3>
-              </span>
-              <FaChevronDown className={toggleForm === 'share' ? '' : 'turn-around'}></FaChevronDown>
-            </div>
-            <div className={`share ${toggleForm === 'share' ? '' : 'collapsed'}`}>
-              {/* <!-- class = share añadir con JS--> 
-              COLLAPSED*/}
-              <button
-                className="share__button"
-                name="create-card"
-                value="create-card"
-                onClick={handleClick}
-              >
-                {' '}
-                <FaIdCard></FaIdCard> Crear
-                tarjeta{' '}
-              </button>
-            </div>
-            {renderShareCode()}
-          </fieldset>
+          <Share
+              handleToggleForm={handleToggleForm} person={person
+              } handleInput={handleInput} toggleForm={toggleForm}/>
+         
         </form>
       </main>
       <Footer></Footer>
