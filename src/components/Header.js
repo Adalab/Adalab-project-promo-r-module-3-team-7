@@ -1,3 +1,7 @@
+
+
+import '../styles/components/Header-create.scss';
+import iconLogo from '../images/icono-logo.png';
 const Header = () => {
     return (
         <header className="header-create">

@@ -2,7 +2,7 @@ import '../styles/App.scss';
 import ls from '../service/LocalStorage.js'
 import dataApi from '../service/Api';
 import { useState } from 'react';
-import logo from '../images/logo-adalab.png';
+
 import iconLogo from '../images/icono-logo.png';
 import palette1 from '../images/palette-color-1.png';
 import palette2 from '../images/palette-color-2.png';
@@ -21,6 +21,7 @@ import {
   FaIdCard,
 } from 'react-icons/fa';
 import Header from './Header';
+import Footer from "./Footer";
 
 function App() {
   //TODO: add twitter link to the ls
@@ -391,16 +392,7 @@ function App() {
           </fieldset>
         </form>
       </main>
-      <footer className="footer">
-        <small className="footer__small">Debuggers Cards ©2022</small>
-        <a href="./index.html">
-          <img
-            className="footer__logo"
-            src={logo}
-            alt="Logo Adalab"
-          />
-        </a>
-      </footer>
+      <Footer></Footer>
     </>
   );
 }
