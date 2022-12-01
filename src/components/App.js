@@ -23,11 +23,12 @@ import {
 
 function App() {
 //TODO: add twitter link to the ls
+//TODO: tenemos un error de id repetido
   const handleForm = (e) => {
     e.preventDefault();
   }
   // const [dataCard, setDataCard] = useState({});
-  const [toggleCreateCard, setToggleCreateCard] = useState('');
+  const [toggleCard, setToggleCard] = useState(false);
 
   const [toggleForm, setToggleForm] = useState('design');
 
@@ -44,17 +45,38 @@ function App() {
     photo: 'http://placekitten.com/200/300',
   }));
 
-  const handleCreateCard = (e) => {
-    setToggleCreateCard(e.currentTarget.id);
-    toggleCreateCard ? setToggleCreateCard('') : setToggleCreateCard('collapsed');
+  // const handleCreateCard = (e) => {
+
+
+  // }
+
+  const renderShareCode = () => {
+    if (toggleCard === true) {
+      return (
+        <>
+        <div className="created">
+        <h4 className="created__title">La tarjeta ha sido creada:</h4>
+          {dataResult.success ? <a href={dataResult.cardURL} className="created__link" target="_blank" rel="noreferrer">Aquí tienes tu link: {dataResult.cardURL} </a>: `Por cada campo vacío, un gatito llora`}
+        <a href="#" className="twitter" target="_blank" rel="noreferrer">
+          <FaTwitter></FaTwitter>
+          Compartir en twitter
+        </a>
+      </div>
+      </>
+      );
   }
+}
+
 
   const handleToggleForm = (e) => {
     setToggleForm(e.currentTarget.id);
   };
 
   const handleClick = (e) => {
-     e.preventDefault();
+    e.preventDefault();
+
+    console.log('mehanclickao');
+    setToggleCard(!toggleCard);
 
     dataApi(person).then((data) => 
       setDataResult(data));
@@ -373,16 +395,7 @@ function App() {
                 tarjeta{' '}
               </button>
             </div>
-            <div className={`created ${toggleCreateCard} ||created`} onClick={handleCreateCard} id='createCard'> TODO: revisar esto
-
-
-              <h4 className="created__title">La tarjeta ha sido creada:</h4>
-                {dataResult.success ? <a href={dataResult.cardURL} className="created__link" target="_blank" rel="noreferrer">Aquí tienes tu link: {dataResult.cardURL} </a>: `Por cada campo vacío, un gatito llora`}
-              <a href="#" className="twitter" target="_blank" rel="noreferrer">
-                <FaTwitter></FaTwitter>
-                Compartir en twitter
-              </a>
-            </div>
+           {renderShareCode()}
           </fieldset>
         </form>
       </main>
