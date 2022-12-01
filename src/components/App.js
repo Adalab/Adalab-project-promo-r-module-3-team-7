@@ -4,20 +4,18 @@ import dataApi from '../service/Api';
 import { useState } from 'react';
 
 import iconLogo from '../images/icono-logo.png';
-import palette1 from '../images/palette-color-1.png';
-import palette2 from '../images/palette-color-2.png';
-import palette3 from '../images/palette-color-3.png';
+
 import {
   FaKeyboard,
   FaShareAlt,
   FaChevronDown,
-  FaRegObjectUngroup,
   FaTwitter,
   FaIdCard,
 } from 'react-icons/fa';
 import Header from './Header';
 import Footer from "./Footer";
 import CardPreview from './CardPreview';
+import Design from './Design';
 function App() {
   //TODO: add twitter link to the ls
   //TODO: tenemos un error de id repetido
@@ -65,8 +63,8 @@ function App() {
   }
 
 
-  const handleToggleForm = (e) => {
-    setToggleForm(e.currentTarget.id);
+  const handleToggleForm = (value) => {
+    setToggleForm(value);
   };
 
   const handleClick = (e) => {
@@ -124,72 +122,10 @@ function App() {
         <form method="get" action="" className="form" onSubmit={handleForm}>
           {/* {/*<!--aquí va el link en js -->/ */}
 
-          <fieldset className="design">
-            <div className="option" onClick={handleToggleForm} id="design">
-              <span className="option__span">
-                <FaRegObjectUngroup></FaRegObjectUngroup>
-                <h3 className="option__title">Diseña</h3>
-              </span>
-              <FaChevronDown className={toggleForm === 'design' ? '' : 'turn-around'}></FaChevronDown>
-            </div>
-
-            <div className={`election ${toggleForm === 'design' ? '' : 'collapsed'}`}>
-              <legend className="election__title">Colores</legend>
-
-              <span className="election__span">
-                <label className="election__option" htmlFor="option">
-                  <input
-                    className="election__input "
-                    type="radio"
-                    id="option"
-                    value="1"
-                    name="palette"
-                    checked={person.palette === '1'}
-                    onChange={handleInput}
-                  />
-                  <img
-                    className="election__img"
-                    src={palette1}
-                    alt="Palette-color1"
-                  />
-                </label>
-
-                <label className="election__option" htmlFor="option">
-                  <input
-                    className="election__input "
-                    type="radio"
-                    id="option"
-                    value="2"
-                    name="palette"
-                    checked={person.palette === '2'}
-                    onChange={handleInput}
-                  />
-                  <img
-                    className="election__img"
-                    src={palette2}
-                    alt="Palette-color2"
-                  />
-                </label>
-
-                <label className="election__option" htmlFor="option">
-                  <input
-                    className="election__input "
-                    type="radio"
-                    id="option"
-                    value="3"
-                    name="palette"
-                    checked={person.palette === '3'}
-                    onChange={handleInput}
-                  />
-                  <img
-                    className="election__img"
-                    src={palette3}
-                    alt="Palette-color3"
-                  />
-                </label>
-              </span>
-            </div>
-          </fieldset>
+          <Design
+            handleToggleForm={handleToggleForm} person={person
+            } toggleForm={toggleForm}
+            handleInput={handleInput} />
 
           {/*<!------------------------RELLENA------------------------------------>*/}
 

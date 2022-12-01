@@ -67,4 +67,4 @@ const CardPreview = (props) => {
         </article>
     </section>)
 }
-export default CardPreview
+export default CardPreview;
