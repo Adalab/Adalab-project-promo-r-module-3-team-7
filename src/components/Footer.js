@@ -3,7 +3,8 @@ import '../styles/components/Footer.scss';
 
 import logo from '../images/logo-adalab.png';
 const Footer = () => {
-    return (<footer className="footer">
+    return (
+    <footer className="footer">
         <small className="footer__small">Debuggers Cards ©2022</small>
         <a href="./index.html">
             <img

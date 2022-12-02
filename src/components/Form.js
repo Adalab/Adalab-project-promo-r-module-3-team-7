@@ -10,7 +10,6 @@ const Form = (props)=> {
       const handleToggleForm = (value) => {
         props.setToggleForm(value);
       };
-      //TODO:review
     
     return(
         <form method="get" action="" className="form" onSubmit={handleForm}>
@@ -26,6 +25,9 @@ const Form = (props)=> {
             person={props.person}
             handleInput={props.handleInput}
             toggleForm={props.toggleForm}
+            handleImage={props.handleImage}
+            updateAvatar={props.updateAvatar}
+            avatar={props.avatar}
           />
 
           <Share
@@ -36,8 +38,7 @@ const Form = (props)=> {
             dataResult={props.dataResult}
             toggleCard={props.toggleCard}
             handleClick={props.handleClick}
-            // todo:review
-           
+            renderShareCode = {props.renderShareCode}
           />
         </form>
 

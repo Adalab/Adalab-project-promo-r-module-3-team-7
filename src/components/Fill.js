@@ -3,11 +3,13 @@ import {
     FaKeyboard,
     FaChevronDown,
   } from 'react-icons/fa';
+import GetAvatar from './GetAvatar';
 
-const Fill = (props) =>{
-    const handleToggle = (e) => {
-        props.handleToggleForm(e.currentTarget.id);
-    }
+const Fill = (props) => {
+  const handleToggle = (e) => {
+    props.handleToggleForm(e.currentTarget.id);
+  }
+
     return (
         <fieldset className="fieldset_stuffed">
           <div className="option" onClick={handleToggle} id="fill">
@@ -53,17 +55,12 @@ const Fill = (props) =>{
             </label>
             <div className="stuffed__image">
               <label htmlFor="profileImage" className="add-image">
-                Añadir imagen
+                <GetAvatar avatar={props.avatar} updateAvatar={props.updateAvatar} />
               </label>
-              {/* <input
-                value = {person.photo}
-                onInput={handleInput}
-                type="file"
-                id="profileImage"
-                title="Add image"
-                name="photo"
-              /> */}
-              <div className="preview-image stuffed__input"></div>
+
+             
+              <div className="preview-image stuffed__input"> {props.person.photo !== '' ? <img className="preview-image "
+            src={props.person.photo} alt="cosas"/> : "" }</div>
             </div>
 
             <label className=" stuffed__label" htmlFor="email">
@@ -107,6 +104,7 @@ const Fill = (props) =>{
               required
             />
             <label className="stuffed__label" htmlFor="github">
+
               Github
             </label>
             <input

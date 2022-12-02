@@ -1,4 +1,4 @@
-@import '../core/Variables.scss';
+@import "../core/Variables.scss";
 .card-section {
   background-image: url(https://img.freepik.com/vector-premium/chica-adolescente-computadora-portatil-pasa-tiempo-redes-sociales-simbolos-letras-me-gusta-sonrisas-concepto-vector-estilo-dibujos-animados-plana_351831-46.jpg?w=826);
   padding: 38px 35px 40px 45px;
@@ -34,8 +34,7 @@
     cursor: pointer;
     display: flex;
     align-items: center;
-    
-    
+
     &:hover {
       color: $white;
     }
@@ -88,35 +87,35 @@
     justify-content: flex-start;
     margin-left: 10px;
 
-  .icon-movil,
-  .icon-linkedin,
-  .icon-github ,
-  .icon-email{
-    color: $dark-gree-blue;
-    font-size: 40px;
-    margin-right: 10px;
-     //padding: 7px;
-    border-radius: 16px;
-    border: solid 2px;
-    font-size: 35px;
+    .icon-movil,
+    .icon-linkedin,
+    .icon-github,
+    .icon-email {
+      color: $dark-gree-blue;
+      font-size: 40px;
+      margin-right: 10px;
+      //padding: 7px;
+      border-radius: 16px;
+      border: solid 2px;
+      font-size: 35px;
 
-     &:hover {
-      color: $hospital-green;
-     }
-     }
-     .icon-movil {
-       //padding: 7px 10px;
-     }
-     .fa-brands {
-       padding: 7px 8px;
-     }
+      &:hover {
+        color: $hospital-green;
+      }
+    }
+    .icon-movil {
+      //padding: 7px 10px;
+    }
+    .fa-brands {
+      padding: 7px 8px;
+    }
   }
 }
 
 .icon-logo {
   height: 35px;
   transition: 2s;
- 
+
   &:hover {
     transform: scale(1.25);
   }
@@ -141,7 +140,7 @@
   }
   background-color: rgb(115, 202, 180);
   .card__image {
-    background-image: url('https://img.freepik.com/vector-premium/lindo-gatito-trabajando-frente-computadora-portatil-ilustracion-dibujos-animados_2095-499.jpg?w=826');
+    background-image: url("https://img.freepik.com/vector-premium/lindo-gatito-trabajando-frente-computadora-portatil-ilustracion-dibujos-animados_2095-499.jpg?w=826");
     width: 240px;
     height: 200px;
     margin: 10px 0;
@@ -178,7 +177,7 @@
   }
   background-color: rgb(238, 160, 160);
   .card__image {
-    background-image: url('https://img.freepik.com/vector-premium/muchacha-que-trabaja-ilustracion-icono-computadora-portatil-trabajar-casa-mascota-personaje-dibujos-animados_138676-1024.jpg?w=826');
+    background-image: url("https://img.freepik.com/vector-premium/muchacha-que-trabaja-ilustracion-icono-computadora-portatil-trabajar-casa-mascota-personaje-dibujos-animados_138676-1024.jpg?w=826");
     width: 240px;
     height: 200px;
     margin: 10px 0;
@@ -215,7 +214,7 @@
   }
   background-color: rgb(243, 243, 159);
   .card__image {
-    background-image: url('https://img.freepik.com/vector-premium/trabajadores-lindos-sentados-escritorios-ilustracion-arte-dibujos-animados-gato_56104-661.jpg?w=996');
+    background-image: url("https://img.freepik.com/vector-premium/trabajadores-lindos-sentados-escritorios-ilustracion-arte-dibujos-animados-gato_56104-661.jpg?w=996");
     width: 240px;
     height: 200px;
     margin: 10px 0;

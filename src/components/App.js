@@ -3,10 +3,12 @@ import ls from "../service/LocalStorage.js";
 import dataApi from "../service/Api";
 import { useState } from "react";
 import {Route, Routes} from "react-router-dom";
+import { FaTwitter } from 'react-icons/fa';
 
 import Footer from "./Footer";
 import Create from "./Create";
 import Landing from "./Landing";
+
 
 
 function App() {
@@ -15,6 +17,7 @@ function App() {
   const [toggleForm, setToggleForm] = useState("design");
 
   const [dataResult, setDataResult] = useState({});
+  const [avatar, setAvatar] = useState("");
 
   const [person, setPerson] = useState(
     ls.get("fullObject", {
@@ -25,9 +28,14 @@ function App() {
       phone: "",
       github: "",
       linkedin: "",
-      photo: "http://placekitten.com/200/300",
+      photo: "",
     })
   );
+
+  const updateAvatar = (avatar) => {
+    setAvatar(avatar);
+    setPerson({ ...person, photo: avatar });
+  };
 
   const handleInput = (e) => {
     const inputValue = e.target.value;
@@ -36,7 +44,6 @@ function App() {
     console.log(inputName);
     console.log(inputValue);
     ls.set("fullObject", person);
-
   };
 
   let selectedPalette = "palette1";
@@ -62,7 +69,7 @@ function App() {
     ls.clear();
     setToggleCard(false);
   };
- 
+  
     const handleClick = (e) => {
         e.preventDefault();
     
@@ -82,9 +89,8 @@ function App() {
         selectedPalette={selectedPalette}
         person={person} handleInput={handleInput} dataResult={dataResult}  setToggleForm={setToggleForm} toggleForm={toggleForm}
         toggleCard={toggleCard}
-        handleClick
-        ={handleClick
-        }/>}/>
+        handleClick={handleClick} updateAvatar={updateAvatar}
+        avatar={avatar}/>}/>
         </Routes>
       <Footer/>
     </>

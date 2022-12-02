@@ -16,7 +16,8 @@ const Create = (props) =>{
       toggleCard={props.toggleCard}
       handleClick
       ={props.handleClick
-      }
+      } updateAvatar={props.updateAvatar}
+      avatar={props.avatar}
      /> 
     </main>
     </>

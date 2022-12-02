@@ -29,11 +29,11 @@ const CardPreview = (props) => {
                 <h3 className="js-card-name card__text_title">{(props.person.name === '') ? 'Nombre Apellidos' : props.person.name}</h3>
                 <p className="card__text_subtitle">{(props.person.job === '') ? 'Front-end developer' : props.person.job}</p>
             </div>
-            <div
-                className="card__image "
+            <div className="card__image"
                 title="Preview image"
                 alt="Preview image"
-            ></div>
+            > {props.person.photo !== '' ? <img className="card__image"
+            src={props.person.photo} alt="cosas"/> : "" } </div>
             <ul className="card__social">
                 <li>
                     <a href={`tel:${props.person.phone}`} target="_blank" rel="noreferrer" title="Telephone" alt="Telephone">

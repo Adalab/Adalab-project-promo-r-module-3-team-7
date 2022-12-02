@@ -1,4 +1,4 @@
-@import '../core/Variables.scss' ;
+@import "../core/Variables.scss";
 .form {
   background-image: linear-gradient(
     to bottom,
@@ -20,7 +20,6 @@
 .turn-around {
   transform: rotate(180deg);
 }
-
 
 //------------------------DISEÑA------------------------------------//
 
@@ -86,7 +85,7 @@
     height: 17px;
     margin-right: 10px;
   }
-  
+
   &__img {
     width: 100px;
   }
@@ -107,7 +106,7 @@
     margin-bottom: 7px;
     line-height: 20px;
   }
-  
+
   &__input {
     border: solid 1px $hospital-green;
     margin-bottom: 20px;
@@ -142,7 +141,7 @@
 .preview-image {
   width: 30px;
   height: 30px;
-  margin-left: 20px;
+  //margin-left: 20px;
   background-size: cover;
 }
 
@@ -220,7 +219,6 @@
     text-decoration: none;
     border-radius: 3px;
     box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.32);
-    
   }
   .twitter-icon {
     color: white;
@@ -238,6 +236,6 @@
   color: $grey-checked;
 }
 
-  .collapsed {
-    display: none;
-  }
+.collapsed {
+  display: none;
+}
