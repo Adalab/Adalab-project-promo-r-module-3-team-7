@@ -3,7 +3,7 @@ import ls from "../service/LocalStorage.js";
 import dataApi from "../service/Api";
 import { useState } from "react";
 import {Route, Routes} from "react-router-dom";
-import { FaTwitter } from 'react-icons/fa';
+
 
 import Footer from "./Footer";
 import Create from "./Create";
@@ -79,10 +79,7 @@ function App() {
       };
   return (
     <>
-      {/*<!------------------------LANDING PAGE------------------------------------>
-      <Landing />
-
-      {/*<!------------------------CREATE PAGE------------------------------------>*/}
+    
       <Routes>
         <Route path="/" element={<Landing />}/>
         <Route path="/create" element={<Create handleReset={handleReset}

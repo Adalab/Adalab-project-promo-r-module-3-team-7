@@ -6,7 +6,7 @@ import {
     FaLinkedin,
     FaEnvelopeOpenText,
 } from 'react-icons/fa';
-import iconLogo from '../images/icono-logo.png';
+ 
 import Logotransparente from '../images/logo-transparente.png';
 import {NavLink} from "react-router-dom";
 
