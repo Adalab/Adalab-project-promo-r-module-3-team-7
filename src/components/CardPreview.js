@@ -7,6 +7,8 @@ import {
     FaEnvelopeOpenText,
 } from 'react-icons/fa';
 import iconLogo from '../images/icono-logo.png';
+import Logotransparente from '../images/logo-transparente.png';
+import {NavLink} from "react-router-dom";
 
 const CardPreview = (props) => {
     return (<section className="card-section ">
@@ -54,14 +56,9 @@ const CardPreview = (props) => {
                     </a>
                 </li>
                 <li>
-                    {/* <a
-        href="http://beta.adalab.es/project-promo-r-module-2-team-9/"
-        target="_blank" rel="noreferrer"
-        title="Debuggers Cards"
-        alt="Debuggers Cards"
-      > */}
-                    <img src={iconLogo} className="icon-logo" />
-                    {/* </a> */}
+                <NavLink to='/' className="button" >
+                    <img src={Logotransparente} className="icon-logo" alt='Logo Debuggers'/>
+                     </NavLink> 
                 </li>
             </ul>
         </article>

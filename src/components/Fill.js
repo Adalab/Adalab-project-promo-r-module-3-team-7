@@ -4,7 +4,7 @@ import {
     FaChevronDown,
   } from 'react-icons/fa';
 
-const Fill =(props)=>{
+const Fill = (props) =>{
     const handleToggle = (e) => {
         props.handleToggleForm(e.currentTarget.id);
     }
