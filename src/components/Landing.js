@@ -30,15 +30,15 @@ const Landing = () => {
       </section>
       <section className="section-2">
         <article className="section-2__option">
-          <FaRegObjectUngroup/>
+          <FaRegObjectUngroup className='landing-icon'/>
           <p className="section-2__text">Diseña</p>
         </article>
         <article className="section-2__option">
-        <FaKeyboard/>
+        <FaKeyboard className='landing-icon'/>
           <p className="section-2__text">Rellena</p>
         </article>
         <article className="section-2__option">
-        <FaShareAlt/>
+        <FaShareAlt className='landing-icon'/>
           <p className="section-2__text">Comparte</p>
         </article>
       </section>
