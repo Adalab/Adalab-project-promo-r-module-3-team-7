@@ -6,9 +6,9 @@ import {
     FaLinkedin,
     FaEnvelopeOpenText,
 } from 'react-icons/fa';
- 
+
 import Logotransparente from '../images/logo-transparente.png';
-import {NavLink} from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const CardPreview = (props) => {
     return (<section className="card-section ">
@@ -30,10 +30,15 @@ const CardPreview = (props) => {
                 <p className="card__text_subtitle">{(props.person.job === '') ? 'Front-end developer' : props.person.job}</p>
             </div>
             <div className="card__image"
-                title="Preview image"
-                alt="Preview image"
-            > {props.person.photo !== '' ? <img className="card__image"
-            src={props.person.photo} alt="cosas"/> : "" } </div>
+                style={
+                    props.person.photo
+                        ? { backgroundImage: `url(${props.person.photo})` }
+                        : null
+                }>
+
+            </div>
+            {/* {props.person.photo !== '' ? <img className="card__image"
+            src={props.person.photo} alt="cosas"/> : "" } */ }
             <ul className="card__social">
                 <li>
                     <a href={`tel:${props.person.phone}`} target="_blank" rel="noreferrer" title="Telephone" alt="Telephone">
@@ -56,9 +61,9 @@ const CardPreview = (props) => {
                     </a>
                 </li>
                 <li>
-                <NavLink to='/' className="button" >
-                    <img src={Logotransparente} className="icon-logo" alt='Logo Debuggers'/>
-                     </NavLink> 
+                    <NavLink to='/' className="button" >
+                        <img src={Logotransparente} className="icon-logo" alt='Logo Debuggers' />
+                    </NavLink>
                 </li>
             </ul>
         </article>
