@@ -2,17 +2,14 @@ import "../styles/App.scss";
 import ls from "../service/LocalStorage.js";
 import dataApi from "../service/Api";
 import { useState } from "react";
-import {Route, Routes} from "react-router-dom";
-
-
+import { Route, Routes } from "react-router-dom";
 import Footer from "./Footer";
 import Create from "./Create";
 import Landing from "./Landing";
 
 
-
 function App() {
-  
+
   const [toggleCard, setToggleCard] = useState(false);
   const [toggleForm, setToggleForm] = useState("design");
 
@@ -40,7 +37,20 @@ function App() {
   const handleInput = (e) => {
     const inputValue = e.target.value;
     const inputName = e.target.name;
-    setPerson({ ...person, [inputName]: inputValue });
+    if (inputName === 'phone') {
+
+      const re = /^[0-9]*$/;
+      if (re.test(inputValue)) {
+        setPerson({ ...person, [inputName]: inputValue });
+      } else {
+        alert('Este teléfono no es válido');
+      }
+    } else {
+      setPerson({ ...person, [inputName]: inputValue });
+    }
+    // const 
+
+    // setPerson({ ...person, [inputName]: inputValue });
     console.log(inputName);
     console.log(inputValue);
     ls.set("fullObject", person);
@@ -69,27 +79,28 @@ function App() {
     ls.clear();
     setToggleCard(false);
   };
-  
-    const handleClick = (e) => {
-        e.preventDefault();
-    
-        setToggleCard(true);
-    
-        dataApi(person).then((data) => setDataResult(data));
-      };
+
+  const handleClick = (e) => {
+    e.preventDefault();
+
+    setToggleCard(true);
+
+    dataApi(person).then((data) => setDataResult(data));
+  };
+
   return (
     <>
-    
+
       <Routes>
-        <Route path="/" element={<Landing />}/>
+        <Route path="/" element={<Landing />} />
         <Route path="/create" element={<Create handleReset={handleReset}
-        selectedPalette={selectedPalette}
-        person={person} handleInput={handleInput} dataResult={dataResult}  setToggleForm={setToggleForm} toggleForm={toggleForm}
-        toggleCard={toggleCard}
-        handleClick={handleClick} updateAvatar={updateAvatar}
-        avatar={avatar}/>}/>
-        </Routes>
-      <Footer/>
+          selectedPalette={selectedPalette}
+          person={person} handleInput={handleInput} dataResult={dataResult} setToggleForm={setToggleForm} toggleForm={toggleForm}
+          toggleCard={toggleCard}
+          handleClick={handleClick} updateAvatar={updateAvatar}
+          avatar={avatar} />} />
+      </Routes>
+      <Footer />
     </>
   );
 }
