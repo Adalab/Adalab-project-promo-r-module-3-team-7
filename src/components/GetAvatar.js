@@ -1,16 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
 function GetAvatar(props) {
   const fr = new FileReader();
   const myFileField = React.createRef();
 
   const uploadImage = (ev) => {
-
-
     if (ev.currentTarget.files.length > 0) {
       const myFile = ev.currentTarget.files[0];
-      fr.addEventListener('load', getImage);
+      fr.addEventListener("load", getImage);
       fr.readAsDataURL(myFile);
     }
   };
