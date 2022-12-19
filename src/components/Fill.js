@@ -1,6 +1,7 @@
 import "../styles/components/Form.scss";
 import { FaKeyboard, FaChevronDown } from "react-icons/fa";
 import GetAvatar from "./GetAvatar";
+import PropTypes from 'prop-types';
 
 const Fill = (props) => {
   const handleToggle = (e) => {
@@ -58,6 +59,7 @@ const Fill = (props) => {
             <GetAvatar
               avatar={props.avatar}
               updateAvatar={props.updateAvatar}
+
             />
           </label>
 
@@ -128,4 +130,14 @@ const Fill = (props) => {
     </fieldset>
   );
 };
+
+Fill.propTypes = {
+  handleToggleForm: PropTypes.func.isRequired,
+  toggleForm: PropTypes.string.isRequired,
+  person: PropTypes.object.isRequired,
+  handleInput: PropTypes.func.isRequired,
+  avatar: PropTypes.string.isRequired,
+  updateAvatar: PropTypes.func.isRequired,
+};
+
 export default Fill;

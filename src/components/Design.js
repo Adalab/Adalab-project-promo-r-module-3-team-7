@@ -6,6 +6,7 @@ import {
     FaRegObjectUngroup,
     FaChevronDown,
 } from 'react-icons/fa';
+import PropTypes from 'prop-types';
 
 const Design = (props) => {
     const handleToggle = (e) => { //same function in 3 sections of the form
@@ -80,5 +81,12 @@ const Design = (props) => {
         </fieldset>
     )
 }
+
+Design.propTypes = {
+    toggleForm: PropTypes.string.isRequired,
+    person: PropTypes.object.isRequired,
+    handleInput: PropTypes.func.isRequired,
+
+};
 
 export default Design;

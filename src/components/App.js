@@ -3,7 +3,6 @@ import ls from "../service/LocalStorage.js";
 import dataApi from "../service/Api";
 import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
-
 import Footer from "./Footer";
 import Create from "./Create";
 import Landing from "./Landing";
@@ -40,7 +39,19 @@ function App() {
   const handleInput = (e) => {
     const inputValue = e.target.value;
     const inputName = e.target.name;
-    setPerson({ ...person, [inputName]: inputValue });
+    if (inputName === "phone") {
+      const re = /^[0-9]*$/;
+      if (re.test(inputValue)) {
+        setPerson({ ...person, [inputName]: inputValue });
+      } else {
+        alert("Este teléfono no es válido");
+      }
+    } else {
+      setPerson({ ...person, [inputName]: inputValue });
+    }
+    // const
+
+    // setPerson({ ...person, [inputName]: inputValue });
     console.log(inputName);
     console.log(inputValue);
     ls.set("fullObject", person);
@@ -72,18 +83,12 @@ function App() {
 
   const handleClick = (e) => {
     e.preventDefault();
+
     setToggleCard(true);
-    const regExPhone = /[6-9]{1}[0-9]{8}/;
-    if (!regExPhone.test(person.phone)) {
-      setValidationPhone(
-        "Revisa que el campo de teléfono solo contenga números"
-      );
-      console.log(validationPhone);
-    }
-    // const regExEmail = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/;
 
     dataApi(person).then((data) => setDataResult(data));
   };
+
   return (
     <>
       <Routes>
@@ -103,7 +108,6 @@ function App() {
               handleClick={handleClick}
               updateAvatar={updateAvatar}
               avatar={avatar}
-              validationPhone={validationPhone}
             />
           }
         />

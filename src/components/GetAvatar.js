@@ -29,6 +29,7 @@ function GetAvatar(props) {
           ref={myFileField}
           className="hidden"
           onChange={uploadImage}
+          required
         />
       </label>
 
