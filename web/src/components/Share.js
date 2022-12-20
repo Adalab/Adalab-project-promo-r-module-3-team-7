@@ -9,7 +9,6 @@ import PropTypes from 'prop-types';
 const Share = (props) => {
   const handleToggle = (e) => {
     props.handleToggleForm(e.currentTarget.id);
-
   }
   const renderShareCode = () => {
 
@@ -20,7 +19,7 @@ const Share = (props) => {
           <div className="created">
 
             {props.dataResult.success ? <><h4 className="created__title">La tarjeta ha sido creada:</h4> <a href={props.dataResult.cardURL} className="created__link" target="_blank" rel="noreferrer">Aquí tienes tu link: {props.dataResult.cardURL} </a></> : `Por cada campo vacío, un gatito llora`}
-            <a href={`https://twitter.com/intent/tweet?text=Nueva%20tarjeta%20creada%20${props.dataResult.cardURL}`} className="twitter" target="_blank" rel="noreferrer">
+            <a href={`https://twitter.com/intent/tweet?text=Nueva%20tarjeta%20creada%20 ${props.dataResult.cardURL}`} className="twitter" target="_blank" rel="noreferrer">
               <FaTwitter></FaTwitter>
               Compartir en twitter
             </a>

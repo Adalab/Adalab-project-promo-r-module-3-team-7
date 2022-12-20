@@ -26,10 +26,7 @@ function App() {
       photo: "",
     })
   );
-  const [validationPhone, setValidationPhone] = useState("");
-  const [validationEmail, setValidationEmail] = useState("");
-  const [validationGithub, setValidationGithub] = useState("");
-  const [validationLinkedin, setValidationLinkedin] = useState("");
+
 
   const updateAvatar = (avatar) => {
     setAvatar(avatar);
@@ -39,19 +36,7 @@ function App() {
   const handleInput = (e) => {
     const inputValue = e.target.value;
     const inputName = e.target.name;
-    if (inputName === "phone") {
-      const re = /^[0-9]*$/;
-      if (re.test(inputValue)) {
-        setPerson({ ...person, [inputName]: inputValue });
-      } else {
-        alert("Este teléfono no es válido");
-      }
-    } else {
-      setPerson({ ...person, [inputName]: inputValue });
-    }
-    // const
-
-    // setPerson({ ...person, [inputName]: inputValue });
+    setPerson({ ...person, [inputName]: inputValue });
     console.log(inputName);
     console.log(inputValue);
     ls.set("fullObject", person);
@@ -88,7 +73,7 @@ function App() {
 
     dataApi(person).then((data) => setDataResult(data));
   };
-
+  console.log(dataResult);
   return (
     <>
       <Routes>
