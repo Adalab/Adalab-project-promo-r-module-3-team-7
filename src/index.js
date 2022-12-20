@@ -1,16 +1,31 @@
-// Fichero src/index.js (código nuevo)
+// Importamos los dos módulos de NPM necesarios para trabajar
+const express = require('express');
+const cors = require('cors');
 
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './components/App';
+// Creamos el servidor
+const server = express();
 
-import {HashRouter} from 'react-router-dom';
+// Configuramos el servidor
+server.use(cors());
+server.use(express.json({limit: '25mb'}));
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-  <HashRouter>
-    <App />
-  </HashRouter>
-  </React.StrictMode>
-);
+// Arrancamos el servidor en el puerto 3000
+const serverPort = 4000;
+server.listen(serverPort, () => {
+    console.log(`Server listening at http://localhost:${serverPort}`);
+});
+
+//END POINTS
+server.post("/card", (req, res) => {
+    //TODO: express II -> fake response
+    const responseSuccess = {
+        cardUrl: "https://dev.adalab.es/card/16715386762002278",
+        success: true
+    }
+    res.json(responseSuccess);
+});
+
+//Draws card
+// server.get("card/id", (req, res) => {
+//  //TODO: express III
+// })
