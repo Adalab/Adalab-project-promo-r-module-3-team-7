@@ -39,7 +39,11 @@ server.post("/card", (req, res) => {
     }
 });
 
+
 //Draws card
 // server.get("card/${newCard.id}", (req, res) => {
 //  //TODO: express III
 // })
+
+const staticServerPath = './src/public-react';
+server.user(express.static(staticServerPath));
