@@ -1,7 +1,7 @@
 // Importamos los dos módulos de NPM necesarios para trabajar
 const express = require('express');
 const cors = require('cors');
-const { v4: uuidv4 } = require('uuid');i
+const { v4: uuidv4 } = require('uuid');
 
 // Creamos el servidor
 const server = express();
@@ -46,4 +46,4 @@ server.post("/card", (req, res) => {
 // })
 
 const staticServerPath = './src/public-react';
-server.user(express.static(staticServerPath));
+server.use(express.static(staticServerPath));
