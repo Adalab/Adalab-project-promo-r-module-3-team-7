@@ -3,7 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const Database = require("better-sqlite3");
 const db = new Database("./src/db/cards.db", { verbose: console.log });
-const { v4: uuidv4 } = require('uuid');
+const { v4: uuidv4 } = require("uuid");
 
 // Creamos el servidor
 const server = express();
@@ -21,37 +21,45 @@ server.listen(serverPort, () => {
 
 //END POINTS
 server.post("/card", (req, res) => {
-   
-  if (req.body.name === '' || req.body.job === '' || req.body.email === '' || req.body.phone === '' || req.body.github === '' || req.body.linkedin === '' || req.body.photo === '') {
-        const responseError = {
-            error: 'Faltan campos por rellenar',
-            success: false
-        }
-        res.json(responseError);
-    } else {
-        const newCard = {
-            id: uuidv4(),
-            ...req.body
-        }
-        saveCard.push(newCard);
-        const responseSuccess = {
-            cardURL: `http://localhost:4000/card/${newCard.id}`,
-            success: true
-        }
-        res.json(responseSuccess);
-    }
+  if (
+    req.body.name === "" ||
+    req.body.job === "" ||
+    req.body.email === "" ||
+    req.body.phone === "" ||
+    req.body.github === "" ||
+    req.body.linkedin === "" ||
+    req.body.photo === ""
+  ) {
+    const responseError = {
+      error: "Faltan campos por rellenar",
+      success: false,
+    };
+    res.json(responseError);
+  } else {
+    const newCard = {
+      id: uuidv4(),
+      ...req.body,
+    };
+    saveCard.push(newCard);
+    const responseSuccess = {
+      cardURL: `http://localhost:4000/card/${newCard.id}`,
+      success: true,
+    };
+    res.json(responseSuccess);
+  }
 });
- 
 
 server.get("card/:id", (req, res) => {
   const id = req.params.id;
+  console.log(id);
   const query = db.prepare("SELECT * FROM card WHERE id=?");
   const userCard = query.get(id);
-  res.render("card", userCard);
+  console.log(userCard);
+  // res.render("card", userCard);
 });
-    
-const staticServerPath = './src/public-react';
+
+const staticServerPath = "./src/public-react";
 server.use(express.static(staticServerPath));
 
-const staticServerCssPath = './src/public-css';
+const staticServerCssPath = "./src/public-css";
 server.use(express.static(staticServerCssPath));
