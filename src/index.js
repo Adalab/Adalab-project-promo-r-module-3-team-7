@@ -49,13 +49,14 @@ server.post("/card", (req, res) => {
   }
 });
 
-server.get("card/:id", (req, res) => {
+server.get("/card/:id", (req, res) => {
   const id = req.params.id;
   console.log(id);
-  const query = db.prepare("SELECT * FROM card WHERE id=?");
+  //hace referencia a la tabla "cards"
+  const query = db.prepare("SELECT * FROM cards WHERE id=?");
   const userCard = query.get(id);
   console.log(userCard);
-
+  // este es el de views "card"
   res.render("card", userCard);
 });
 
