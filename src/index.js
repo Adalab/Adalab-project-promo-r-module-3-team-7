@@ -36,18 +36,29 @@ server.post("/card", (req, res) => {
     };
     res.json(responseError);
   } else {
-    const newCard = {
-      id: uuidv4(),
-      ...req.body,
-    };
-    saveCard.push(newCard);
+    const newCard = req.body
+    const insertStmt = db.prepare('INSERT INTO cards (palette, name, job, photo, email, phone, linkedin, github) VALUES (?,?,?,?,?,?,?,?) ');
+    const result = insertStmt.run(
+      newCard.palette,
+      newCard.name,
+      newCard.email,
+      newCard.photo,
+      newCard.phone,
+      newCard.linkedin,
+      newCard.github,
+      newCard.job
+    );
+    console.log(result);
+    // respuesta si todo va bien
+
     const responseSuccess = {
-      cardURL: `http://localhost:4000/card/${newCard.id}`,
+      cardURL: `http://localhost:4000/card/${result.lastInsertRowid}`,
       success: true,
     };
     res.json(responseSuccess);
-  }
+  };
 });
+
 
 server.get("/card/:id", (req, res) => {
   const id = req.params.id;
