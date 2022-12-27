@@ -55,7 +55,8 @@ server.get("card/:id", (req, res) => {
   const query = db.prepare("SELECT * FROM card WHERE id=?");
   const userCard = query.get(id);
   console.log(userCard);
-  // res.render("card", userCard);
+
+  res.render("card", userCard);
 });
 
 const staticServerPath = "./src/public-react";
